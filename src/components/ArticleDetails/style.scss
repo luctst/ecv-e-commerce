@@ -21,20 +21,20 @@
     padding-left: 30px;
   }
 
-  .date {
+  .brand {
     font-weight: 500;
     font-size: 17px;
   }
 
-  .category {
-    min-height: 40px;
-    padding: 5px 15px;
+  .link {
     border: solid 1px #000;
+    background-color: #000;
     margin-bottom: 30px;
-    width: fit-content;
-    display: flex;
-    align-items: center;
+  }
+
+  .price {
+    margin-bottom: 15px;
+    font-size: 20px;
     font-weight: 600;
-    text-transform: uppercase;
   }
 }
