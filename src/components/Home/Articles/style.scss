@@ -1,0 +1,23 @@
+.home-articles {
+  margin-top: 60px;
+
+  ul {
+    display: flex;
+  }
+
+  li:not(:first-of-type) {
+    margin-left: 30px;
+  }
+
+  span {
+    margin-top: 15px;
+    display: block;
+    color: #aaa;
+    font-weight: 400;
+  }
+
+  .icon-more {
+    margin-top: 20px;
+    width: 30px;
+  }
+}

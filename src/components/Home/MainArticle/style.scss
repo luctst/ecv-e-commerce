@@ -1,0 +1,35 @@
+.main-article {
+  height: calc(100vh - 90px - 30px);
+  position: relative;
+  margin-bottom: 30px;
+
+  .img {
+    height: 100%;
+    width: 40%;
+    z-index: 0;
+    padding-bottom: 0;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    left: 40%;
+    padding-left: 30px;
+    width: 70%;
+    max-width: 600px;
+  }
+
+  .icon-more {
+    margin-top: 40px;
+    width: 40px;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}

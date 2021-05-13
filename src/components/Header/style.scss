@@ -1,0 +1,32 @@
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 30px;
+  font-weight: 500;
+
+  ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+  }
+
+  li:not(:first-of-type) {
+    margin-left: 40px;
+  }
+
+  img {
+    width: 25px;
+  }
+
+  .logo {
+    margin-right: auto;
+
+    img {
+      width: 50px;
+    }
+  }
+}

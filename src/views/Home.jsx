@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 import { connect } from 'react-redux';
-
-import Header from '../components/Header';
+import MainArticle from "../components/Home/MainArticle";
+import Articles from "../components/Home/Articles";
 
 function Home(props) {
     // const [state, setState] = useState({
@@ -9,7 +9,7 @@ function Home(props) {
     // });
 
     function parseClass(i) {
-        let str = 'col-4 rounded-1 border '
+        let str = 'col-4 rounded-1 border ';
 
         if (i === 0) return str.concat('border-primary');
         if (i === 1) return str.concat('border-warning');
@@ -18,16 +18,17 @@ function Home(props) {
 
     return (
         <>
-            <Header />
-            <main className="container mt-5">
-                <div className="row">
+            <div>
+                <MainArticle/>
+                <Articles/>
+                <div>
                     {
                         Object.keys(props.tasks).map((task, index) => {
                             return (
                                 <div className={parseClass(index)} key={index}>
-                                    <header>
+                                    <div>
                                         <p className="text-center">{task}</p>
-                                    </header>
+                                    </div>
                                     <section>
                                         <ul>
                                             {
@@ -40,7 +41,7 @@ function Home(props) {
                         })
                     }
                 </div>
-            </main>
+            </div>
         </>
     );
 }
