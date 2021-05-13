@@ -1,8 +1,8 @@
+import LoginForm from "../components/LoginForm";
+
 function Login() {
     return (
-        <section>
-            <h1>Login</h1>
-        </section>
+        <LoginForm/>
     )
 }
 
