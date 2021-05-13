@@ -14,4 +14,23 @@
     font-size: 50px;
     margin-bottom: 30px;
   }
+
+  .upload {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    label {
+      flex-grow: 1;
+    }
+
+    div {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: solid 1px #000;
+      margin-right: 15px;
+      padding-bottom: 0;
+    }
+  }
 }

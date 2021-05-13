@@ -1,21 +1,11 @@
 .upload {
-  display: flex;
-  align-items: center;
-  width: 100%;
 
-  .avatar {
-    width: 70px;
-    height: 70px;
+  div {
+    width: 100%;
+    padding-bottom: 50%;
     flex-shrink: 0;
-    border-radius: 50%;
-    border: solid 1px #000;
     position: relative;
     overflow: hidden;
-    margin-right: 15px;
-  }
-
-  label {
-    flex-grow: 1;
   }
 
   img {

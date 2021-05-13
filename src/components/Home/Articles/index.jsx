@@ -2,11 +2,12 @@ import './style.scss';
 import { Link } from "react-router-dom";
 import more from "../../../assets/images/icons/plus.svg";
 import LazyImage from '../../LazyImage';
+import Categories from "../Categories";
 
 function Articles() {
     return (
         <section className="home-articles">
-            <ul>
+            <ul className="home-articles__list">
                 <li>
                     <Link to="/">
                         <LazyImage src="https://streetartnews.net/wp-content/themes/contemporaryartnews/assets/images/4.4d7a51ab.jpg" alt="Titre de l'article"/>
@@ -19,7 +20,8 @@ function Articles() {
                 <li>
                     <Link to="/">
                         <LazyImage src="https://streetartnews.net/wp-content/themes/contemporaryartnews/assets/images/2.f37e6130.jpg" alt="Titre de l'article"/>
-                        <span>20/01/2021</span>                    <h2>Titre de l'article</h2>
+                        <span>20/01/2021</span>
+                        <h2>Titre de l'article</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?</p>
                         <img className="icon-more" src={more} alt="Voir l'article"/>
                     </Link>
@@ -34,6 +36,7 @@ function Articles() {
                     </Link>
                 </li>
             </ul>
+            <Categories/>
         </section>
     );
 }
