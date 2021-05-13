@@ -6,7 +6,7 @@ function MainCollection() {
     return (
         <section className="main-collection">
             <LazyImage src="https://medias-cache.printemps.com/image/10/6/3061106.jpg" alt="Voir nos dernières nouveautés"/>
-            <LinkButton>Découvrir nos articles</LinkButton>
+            <LinkButton link="/articles">Découvrir nos articles</LinkButton>
         </section>
     );
 }

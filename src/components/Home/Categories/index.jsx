@@ -17,8 +17,8 @@ function SmallArticle() {
         <section className="home-categories">
             <h2>Toutes nos catégories</h2>
             <ul>
-                {categories.map(category => {
-                    return <li>
+                {categories.map((category, index) => {
+                    return <li key={`category-${index}`}>
                         <LinkButton link="/articles">{category.name}</LinkButton>
                     </li>
                 })}

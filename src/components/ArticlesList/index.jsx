@@ -1,6 +1,5 @@
 import './style.scss';
 import SmallArticle from "../SmallArticle";
-import LinkButton from "../LinkButton";
 
 const categories = [
     {name: "Jupes", id: 1, handle: "jupe"},
@@ -111,8 +110,8 @@ function ArticlesList() {
                 <h1>Nos articles</h1>
                 <form>
                     <label><input type="radio" value="all" defaultChecked name="category"/><span>Toute l'actualité</span></label>
-                    {categories.map(category => {
-                        return <label>
+                    {categories.map((category, index) => {
+                        return <label key={`category-${index}`}>
                             <input type="radio" value={category.id} name="category"/>
                             <span>{category.name}</span>
                         </label>
@@ -120,8 +119,8 @@ function ArticlesList() {
                 </form>
             </div>
             <ul className="list">
-                {articles.map(article => {
-                    return <SmallArticle article={article}/>
+                {articles.map((article, index) => {
+                    return <SmallArticle key={`article-${index}`} article={article}/>
                 })}
             </ul>
         </section>

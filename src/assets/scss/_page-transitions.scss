@@ -1,0 +1,15 @@
+.page {
+  transition: opacity ease-out 1s;
+}
+
+.page-enter,
+.page-exit-active {
+  opacity: 0;
+}
+
+.page-enter-active,
+.page-exit {
+  opacity: 1;
+}
+
+

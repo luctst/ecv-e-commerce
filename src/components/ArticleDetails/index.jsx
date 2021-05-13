@@ -1,6 +1,5 @@
 import './style.scss';
 import LazyImage from "../LazyImage";
-import { Link } from "react-router-dom";
 import LinkButton from "../LinkButton";
 
 const article = {

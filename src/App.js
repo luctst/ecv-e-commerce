@@ -3,8 +3,9 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-
 import './assets/scss/style.scss'
+import { TransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import Layout from "./layouts/Layout";
 import Home from './views/Home';
 import Login from "./views/Login";
@@ -13,18 +14,39 @@ import Account from "./views/Account";
 import Articles from "./views/Articles";
 import Article from "./views/Article";
 
+const routes = [
+    { path: '/', name: 'Home', Component: Home },
+    { path: '/inscription', name: 'Register', Component: Register },
+    { path: '/conexion', name: 'Login', Component: Login },
+    { path: '/articles', name: 'Articles', Component: Articles },
+    { path: '/articles/:id', name: 'Article', Component: Article },
+    { path: '/mon-compte', name: 'Account', Component: Account },
+];
+
 function App() {
     return (
         <Router>
             <Layout>
-                <Switch>
-                    <Route path="/" exact strict sensitive component={Home}/>
-                    <Route path="/inscription" exact strict sensitive component={Register}/>
-                    <Route path="/connexion" exact strict sensitive component={Login}/>
-                    <Route path="/mon-compte" exact strict sensitive component={Account}/>
-                    <Route path="/articles" exact strict sensitive component={Articles}/>
-                    <Route path="/articles/:id" exact strict sensitive component={Article}/>
-                </Switch>
+                <TransitionGroup>
+                    <Switch>
+                        {routes.map(({ path, Component }) => (
+                            <Route key={path} exact path={path}>
+                                {({ match }) => (
+                                    <CSSTransition
+                                        in={match != null}
+                                        timeout={300}
+                                        classNames="page"
+                                        unmountOnExit
+                                    >
+                                        <div className="page">
+                                            <Component />
+                                        </div>
+                                    </CSSTransition>
+                                )}
+                            </Route>
+                        ))}
+                    </Switch>
+                </TransitionGroup>
             </Layout>
         </Router>
     );

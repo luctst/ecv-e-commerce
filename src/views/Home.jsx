@@ -19,30 +19,28 @@ function Home(props) {
 
     return (
         <>
+            <MainCollection/>
+            <MainArticles/>
+            <Categories/>
             <div>
-                <MainCollection/>
-                <MainArticles/>
-                <Categories/>
-                <div>
-                    {
-                        Object.keys(props.tasks).map((task, index) => {
-                            return (
-                                <div className={parseClass(index)} key={index}>
-                                    <div>
-                                        <p className="text-center">{task}</p>
-                                    </div>
-                                    <section>
-                                        <ul>
-                                            {
-                                                props.tasks[task].map((item, y) => <li key={y} onClick={() => props.dispatch({ type: 'SWITCH_TASK', data: { columnIndex: index, item, itemIndex: y }})}>{item} </li>)
-                                            }
-                                        </ul>
-                                    </section>
+                {
+                    Object.keys(props.tasks).map((task, index) => {
+                        return (
+                            <div className={parseClass(index)} key={index}>
+                                <div>
+                                    <p className="text-center">{task}</p>
                                 </div>
-                            );
-                        })
-                    }
-                </div>
+                                <section>
+                                    <ul>
+                                        {
+                                            props.tasks[task].map((item, y) => <li key={y} onClick={() => props.dispatch({ type: 'SWITCH_TASK', data: { columnIndex: index, item, itemIndex: y }})}>{item} </li>)
+                                        }
+                                    </ul>
+                                </section>
+                            </div>
+                        );
+                    })
+                }
             </div>
         </>
     );
