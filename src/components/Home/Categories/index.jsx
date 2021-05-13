@@ -19,7 +19,7 @@ function SmallArticle() {
             <ul>
                 {categories.map((category, index) => {
                     return <li key={`category-${index}`}>
-                        <LinkButton link="/articles">{category.name}</LinkButton>
+                        <LinkButton link={`/articles?categorie=${category.handle}`}>{category.name}</LinkButton>
                     </li>
                 })}
             </ul>

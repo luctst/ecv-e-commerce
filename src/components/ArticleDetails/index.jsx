@@ -10,7 +10,10 @@ const article = {
     price: "79.00",
     image: "https://medias-cache.citadium.com/fr/levis-chemise-bleu/image/35/8/3025358.426.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
-    category: "Chemise"
+    category: {
+        name: 'Chemises',
+        handle: 'chemises'
+    }
 };
 
 function ArticleDetails() {
@@ -18,7 +21,7 @@ function ArticleDetails() {
         <section className="article-details">
             <LazyImage src={article.image} alt={article.title}/>
             <div>
-                <LinkButton link="/articles">{article.category}</LinkButton>
+                <LinkButton link={`/articles?categorie=${article.category.handle}`}>{article.category.name}</LinkButton>
                 <p className="brand">{article.brand}</p>
                 <h1>{article.title}</h1>
                 <p className="price">{article.price}€</p>

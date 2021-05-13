@@ -23,6 +23,9 @@ function Header() {
                         <Link to="/inscription">Inscription</Link>
                     </li>
                     <li>
+                        <Link to="/mon-compte">Mon compte</Link>
+                    </li>
+                    <li>
                         <Link to="/">
                             <img src={search} alt="Faire une recherche"/>
                         </Link>
