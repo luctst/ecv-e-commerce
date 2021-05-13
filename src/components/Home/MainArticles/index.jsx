@@ -40,8 +40,8 @@ function Categories() {
     return (
         <section className="main-articles">
             <ul>
-                {articles.map((article, index) => {
-                    return <SmallArticle key={index} article={article}/>
+                {articles.map(article => {
+                    return <SmallArticle article={article}/>
                 })}
             </ul>
         </section>

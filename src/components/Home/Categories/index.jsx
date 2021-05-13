@@ -1,5 +1,4 @@
 import './style.scss';
-import { Link } from "react-router-dom";
 import LinkButton from "../../LinkButton";
 
 const categories = [
@@ -13,14 +12,14 @@ const categories = [
     {name: "Pulls", id: 8, handle: "pulls"}
 ];
 
-function SmallArticle(props) {
+function SmallArticle() {
     return (
         <section className="home-categories">
             <h2>Toutes nos catégories</h2>
             <ul>
-                {categories.map((category, index) => {
-                    return <li key={index}>
-                        <LinkButton link={`/categories/${category.handle}`}>{category.name}</LinkButton>
+                {categories.map(category => {
+                    return <li>
+                        <LinkButton link="/articles">{category.name}</LinkButton>
                     </li>
                 })}
             </ul>

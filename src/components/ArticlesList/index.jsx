@@ -1,29 +1,128 @@
 import './style.scss';
 import SmallArticle from "../SmallArticle";
+import LinkButton from "../LinkButton";
+
+const categories = [
+    {name: "Jupes", id: 1, handle: "jupe"},
+    {name: "Vestes", id: 2, handle: "vestes"},
+    {name: "Chemises", id: 3, handle: "chemises"},
+    {name: "Robes", id: 4, handle: "robes"},
+    {name: "Sacs", id: 5, handle: "sacs"},
+    {name: "Chaussures", id: 6, handle: "chaussures"},
+    {name: "Pantalons", id: 7, handle: "pantalons"},
+    {name: "Pulls", id: 8, handle: "pulls"}
+];
+
+const articles = [
+    {
+        id: 1,
+        handle: 'chemise-a-fleur',
+        title: "Chemise à fleur",
+        brand: "Levi's",
+        price: "79.00",
+        image: "https://medias-cache.citadium.com/fr/levis-chemise-bleu/image/35/8/3025358.426.jpg"
+    },
+    {
+        id: 2,
+        handle: 'sweat-oversize',
+        title: "Sweat oversize",
+        brand: "Levi's",
+        price: "75.00",
+        image: "https://medias-cache.citadium.com/fr/levis-sweat-blanc/image/36/0/3025360.426.jpg"
+    },
+    {
+        id: 3,
+        handle: "coupe-vent-impermeable-avec-capuche-olive",
+        title: "Coupe-vent imperméable avec capuche olive",
+        brand: "Rains",
+        price: "95.00",
+        image: "https://medias-cache.citadium.com/fr/rains-coupe-vent-impermeable-avec-capuche-vert/image/98/6/2992986.129.jpg"
+    },
+    {
+        id: 4,
+        handle: "sac-a-bandouliere-nightout",
+        title: "Sac à bandoulière nightoutr",
+        brand: "George Gina & Lucy",
+        price: "139.00",
+        image: "https://medias-cache.citadium.com/fr/george-gina-lucy-sac-a-bandouliere-noir/image/86/2/2991862.129.jpg"
+    },
+    {
+        id: 5,
+        handle: "dr-martens-en-cuir-black-smooth",
+        title: "Dr. Martens en cuir black smooth",
+        brand: "Dr. Martens",
+        price: "160.00",
+        image: "https://medias-cache.citadium.com/fr/dr-martens-dr-martens-en-cuir-noir/image/97/1/2919971.129.jpg"
+    },
+    {
+        id: 6,
+        handle: "tee-shirt-col-rond-regular-fit",
+        title: "Tee-shirt col rond regular-fit",
+        brand: "Tealer",
+        price: "35.00",
+        image: "https://medias-cache.citadium.com/fr/tealer-tee-shirt-col-rond-regular-fit-serigraphie-en-coton-blanc/image/74/0/3063740.129.jpg"
+    },
+    {
+        id: 7,
+        handle: "aop-milano-mini-skirt-jupe",
+        title: "AOP Milano mini skirt jupe",
+        brand: "Calvin Klein Jeans",
+        price: "69.00",
+        image: "https://medias-cache.citadium.com/fr/calvin-klein-jeans-jupe-blanc/image/46/9/2899469.426.jpg"
+    },
+    {
+        id: 8,
+        handle: "timeless-script-robe",
+        title: "Timeless script robe",
+        brand: "Tommy Jeans",
+        price: "90.00",
+        image: "https://medias-cache.citadium.com/fr/tommy-jeans-robe-rouge/image/38/7/2965387.426.jpg"
+    },
+    {
+        id: 9,
+        handle: "dress-mazzy-robe",
+        title: "Dress mazzy robe",
+        brand: "Wasted",
+        price: "70.00",
+        image: "https://medias-cache.citadium.com/fr/wasted-robe-noir/image/21/6/3011216.426.jpg"
+    },
+    {
+        id: 10,
+        handle: "campo-chromefree",
+        title: "Campo chromefree",
+        brand: "Veja",
+        price: "125.00",
+        image: "https://medias-cache.citadium.com/fr/veja-campo-chromefree-jaune/image/56/5/3063565.426.jpg"
+    },
+    {
+        id: 11,
+        handle: "ua-old-skool-tapared-basket",
+        title: "Ua old skool tapared basket",
+        brand: "Vans",
+        price: "90.00",
+        image: "https://medias-cache.citadium.com/image/97/8/3066978.426.jpg"
+    }
+];
 
 function ArticlesList() {
     return (
         <section className="articles">
             <div className="head">
-                <h1>Les articles</h1>
+                <h1>Nos articles</h1>
                 <form>
                     <label><input type="radio" value="all" defaultChecked name="category"/><span>Toute l'actualité</span></label>
-                    <label><input type="radio" value="Mode" name="category"/><span>Mode</span></label>
-                    <label><input type="radio" value="Cinéma" name="category"/><span>Cinéma</span></label>
-                    <label><input type="radio" value="International" name="category"/><span>International</span></label>
-                    <label><input type="radio" value="Musique" name="category"/><span>Musique</span></label>
-                    <label><input type="radio" value="Economie" name="category"/><span>Economie</span></label>
-                    <label><input type="radio" value="Web" name="category"/><span>Web</span></label>
-                    <label><input type="radio" value="Cuisine" name="category"/><span>Cuisine</span></label>
+                    {categories.map(category => {
+                        return <label>
+                            <input type="radio" value={category.id} name="category"/>
+                            <span>{category.name}</span>
+                        </label>
+                    })}
                 </form>
             </div>
             <ul className="list">
-                <SmallArticle id="1" title="Titre de l'article" date="20/01/2021" image="https://streetartnews.net/wp-content/themes/contemporaryartnews/assets/images/4.4d7a51ab.jpg" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?"/>
-                <SmallArticle id="2" title="Titre de l'article" date="20/01/2021" image="https://theculturetrip.com/wp-content/uploads/2018/11/d2f7ec.jpg" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?"/>
-                <SmallArticle id="3" title="Titre de l'article" date="20/01/2021" image="https://www.museum-bordeaux.fr/sites/BOR-MUSEUM-DRUPAL/files/2020-05/La%20place%20de%20l%27homme%20dans%20la%20nature%20au%20Mus%C3%A9um%20de%20Bordeaux%20-%20sciences%20et%20nature%20%282%29_6.jpg" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?"/>
-                <SmallArticle id="4" title="Titre de l'article" date="20/01/2021" image="https://blog.action-sejours.com/wp-content/uploads/2018/01/Les-10-choses-a-savoir-sur-Londres-avant-votre-sejour-1.jpg" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?"/>
-                <SmallArticle id="5" title="Titre de l'article" date="20/01/2021" image="https://file1.grazia.fr/var/grazia/storage/images/1/2/6/6/4/12664127/fashion-week-new-york-toutes-les-tendances-reperees-sur-les-defiles-printemps-ete-2021.jpeg?alias=original" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?"/>
-                <SmallArticle id="6" title="Titre de l'article" date="20/01/2021" image="https://www.benoit-paris.com/sites/default/files/styles/slider_bg/public/page-bg/salle_benoit_paris2_0.jpg?itok=v81K0JP8" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?"/>
+                {articles.map(article => {
+                    return <SmallArticle article={article}/>
+                })}
             </ul>
         </section>
     );
