@@ -1,0 +1,16 @@
+.articles {
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: calc((100% - 90px) / 4);
+      margin-bottom: 30px;
+      &:not(:nth-of-type(4n)) {
+        margin-right: 30px;
+      }
+    }
+  }
+
+}

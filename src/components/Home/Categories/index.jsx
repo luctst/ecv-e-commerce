@@ -1,6 +1,5 @@
 import './style.scss';
 import { Link } from "react-router-dom";
-import more from "../../../assets/images/icons/plus.svg";
 
 function Categories() {
     return (
