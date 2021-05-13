@@ -13,6 +13,7 @@ import Register from "./views/Register";
 import Account from "./views/Account";
 import Articles from "./views/Articles";
 import Article from "./views/Article";
+import ScrollToTop from "./components/ScrollToTop";
 
 const routes = [
     { path: '/', name: 'Home', Component: Home },
@@ -28,6 +29,7 @@ function App() {
         <Router>
             <Layout>
                 <TransitionGroup>
+                    <ScrollToTop/>
                     <Switch>
                         {routes.map(({ path, Component }) => (
                             <Route key={path} exact path={path}>
