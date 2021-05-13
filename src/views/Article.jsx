@@ -1,8 +1,8 @@
+import ArticleDetails from "../components/ArticleDetails";
+
 function Article() {
     return (
-        <section>
-            <h1>Login</h1>
-        </section>
+        <ArticleDetails/>
     )
 }
 

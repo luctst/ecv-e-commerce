@@ -1,7 +1,8 @@
 // import { useState } from 'react';
 import { connect } from 'react-redux';
-import MainArticle from "../components/Home/MainArticle";
-import Articles from "../components/Home/Articles";
+import MainArticles from "../components/Home/MainArticles";
+import MainCollection from "../components/Home/MainCollection";
+import Categories from "../components/Home/Categories";
 
 function Home(props) {
     // const [state, setState] = useState({
@@ -19,8 +20,9 @@ function Home(props) {
     return (
         <>
             <div>
-                <MainArticle/>
-                <Articles/>
+                <MainCollection/>
+                <MainArticles/>
+                <Categories/>
                 <div>
                     {
                         Object.keys(props.tasks).map((task, index) => {

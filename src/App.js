@@ -23,7 +23,7 @@ function App() {
                     <Route path="/connexion" exact strict sensitive component={Login}/>
                     <Route path="/mon-compte" exact strict sensitive component={Account}/>
                     <Route path="/articles" exact strict sensitive component={Articles}/>
-                    <Route path="/article/:id" exact strict sensitive component={Article}/>
+                    <Route path="/articles/:id" exact strict sensitive component={Article}/>
                 </Switch>
             </Layout>
         </Router>

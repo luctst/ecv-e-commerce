@@ -5,11 +5,11 @@ import LazyImage from "../LazyImage";
 function SmallArticle(props) {
     return (
         <li className="small-article">
-            <Link to="/">
+            <Link to={`/articles/${props.id}`}>
                 <LazyImage src={props.image} alt={props.title}/>
-                <span>{props.date}</span>
+                <p className="brand">{props.brand}</p>
                 <h2>{props.title}</h2>
-                <p>{props.description}</p>
+                <p>{props.price}€</p>
             </Link>
         </li>
     );

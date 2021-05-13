@@ -1,0 +1,40 @@
+.article-details {
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+  min-height: calc(100vh - 90px - 30px);
+  align-items: flex-start;
+
+  .img {
+    height: calc(100vh - 90px - 30px);
+    position: sticky;
+    top: 90px;
+    width: 40%;
+    padding-bottom: 0;
+    flex-shrink: 0;
+    min-width: 500px;
+  }
+
+  & > div {
+    position: sticky;
+    top: 90px;
+    padding-left: 30px;
+  }
+
+  .date {
+    font-weight: 500;
+    font-size: 17px;
+  }
+
+  .category {
+    min-height: 40px;
+    padding: 5px 15px;
+    border: solid 1px #000;
+    margin-bottom: 30px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}

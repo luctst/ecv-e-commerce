@@ -1,12 +1,24 @@
 .small-article {
-  .img {
-    padding-bottom: 60%;
-  }
 
   span {
     margin-top: 15px;
     display: block;
     color: #aaa;
     font-weight: 400;
+  }
+
+  h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  img {
+    object-fit: contain;
+  }
+
+  .brand {
+    color: #aaa;
   }
 }
