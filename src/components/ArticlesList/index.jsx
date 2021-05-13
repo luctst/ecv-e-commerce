@@ -6,6 +6,16 @@ function ArticlesList() {
         <section className="articles">
             <div className="head">
                 <h1>Les articles</h1>
+                <form>
+                    <label><input type="radio" value="all" defaultChecked name="category"/><span>Toute l'actualité</span></label>
+                    <label><input type="radio" value="Mode" name="category"/><span>Mode</span></label>
+                    <label><input type="radio" value="Cinéma" name="category"/><span>Cinéma</span></label>
+                    <label><input type="radio" value="International" name="category"/><span>International</span></label>
+                    <label><input type="radio" value="Musique" name="category"/><span>Musique</span></label>
+                    <label><input type="radio" value="Economie" name="category"/><span>Economie</span></label>
+                    <label><input type="radio" value="Web" name="category"/><span>Web</span></label>
+                    <label><input type="radio" value="Cuisine" name="category"/><span>Cuisine</span></label>
+                </form>
             </div>
             <ul className="list">
                 <SmallArticle title="Titre de l'article" date="20/01/2021" image="https://streetartnews.net/wp-content/themes/contemporaryartnews/assets/images/4.4d7a51ab.jpg" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam autem commodi consectetur dolores est illum, ipsum maiores obcaecati placeat possimus quod, saepe, velit! Consequuntur dolorem excepturi fugit nulla quos?"/>
