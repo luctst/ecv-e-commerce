@@ -1,8 +1,8 @@
+import RegisterForm from "../components/Account/RegisterForm";
+
 function Register() {
     return (
-        <section>
-            <h1>Inscription</h1>
-        </section>
+        <RegisterForm/>
     )
 }
 
