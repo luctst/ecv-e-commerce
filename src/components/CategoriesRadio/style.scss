@@ -1,0 +1,51 @@
+.categories-radio {
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    margin-bottom: 15px;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+
+      &:checked + span {
+        outline: solid 2px #000;
+      }
+    }
+
+    span {
+      outline: solid 1px #000;
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 15px;
+    }
+  }
+
+  .link {
+    margin-left: 15px;
+    height: 40px;
+    color: #fff;
+    border: solid 1px #000;
+    &:before {
+      background-color: #000;
+      transform-origin: left;
+    }
+    &:hover {
+      color: #000;
+      &:before {
+        transform-origin: right;
+        transform: scale(0, 1);
+      }
+    }
+  }
+}

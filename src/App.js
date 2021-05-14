@@ -14,14 +14,22 @@ import Account from "./views/Account";
 import Articles from "./views/Articles";
 import Article from "./views/Article";
 import ScrollToTop from "./components/ScrollToTop";
+import CategoryCreate from "./views/CategoryCreate";
+import CategoryEdit from "./views/CategoryEdit";
+import ArticleCreate from "./views/ArticleCreate";
+import ArticleEdit from "./views/ArticleEdit";
 
 const routes = [
     { path: '/', name: 'Home', Component: Home },
     { path: '/inscription', name: 'Register', Component: Register },
-    { path: '/conexion', name: 'Login', Component: Login },
+    { path: '/connexion', name: 'Login', Component: Login },
+    { path: '/mon-compte', name: 'Account', Component: Account },
     { path: '/articles', name: 'Articles', Component: Articles },
     { path: '/articles/:id', name: 'Article', Component: Article },
-    { path: '/mon-compte', name: 'Account', Component: Account },
+    { path: '/article/creer', name: 'ArticleCreate', Component: ArticleCreate },
+    { path: '/article/modifier/:id', name: 'ArticleEdit', Component: ArticleEdit },
+    { path: '/categorie/creer', name: 'CategoryCreate', Component: CategoryCreate },
+    { path: '/categorie/modifier/:id', name: 'CategoryEdit', Component: CategoryEdit },
 ];
 
 function App() {

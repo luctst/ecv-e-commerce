@@ -13,6 +13,7 @@ function RegisterForm() {
                 <Input type="text" required={true}>Prénom</Input>
                 <Input type="email" required={true}>Email</Input>
                 <Input type="password" required={true}>Mot de passe</Input>
+                <Input type="password" required={true}>Confirmation du mot de passe</Input>
                 <Button type="submit">Valider</Button>
             </form>
         </section>

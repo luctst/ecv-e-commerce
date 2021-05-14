@@ -1,13 +1,14 @@
 import './style.scss';
 import React from 'react';
-import avatar from '../../assets/images/profile.png'
+const avatar = 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png';
 
 class Upload extends React.Component {
 
     constructor(props){
         super(props);
+        this.inputValue = props.image ? props.image : '';
         this.state = {
-            file: avatar
+            file: props.image ? props.image : avatar
         };
         this.handleChange = this.handleChange.bind(this)
     }
@@ -30,7 +31,7 @@ class Upload extends React.Component {
                 </div>
                 <label>
                     <span>{this.props.children}</span>
-                    <input required="required" type="text" onChange={this.handleChange}/>
+                    <input value={this.inputValue} required="required" type="text" onChange={this.handleChange}/>
                 </label>
             </div>
         );

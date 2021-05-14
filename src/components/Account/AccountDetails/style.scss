@@ -1,0 +1,118 @@
+.page-account {
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .link {
+    background-color: #000;
+    border: solid 1px #000;
+    margin-top: 15px;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: solid 1px #000;
+    border-bottom: 0;
+    width: 100%;
+    margin-top: 30px;
+
+    td {
+      border-bottom: solid 1px #000;
+
+      &:first-of-type {
+        padding-left: 10px;
+      }
+
+      &:last-of-type {
+        padding: 10px 10px;
+        width: 1px;
+        white-space: nowrap;
+
+        div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .modify,
+  .delete {
+    font-weight: 500;
+    height: 40px;
+    padding: 0 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;
+    transition: background-color ease .2s, color ease .2s;
+    min-width: 100px;
+  }
+
+  .modify {
+    background: #6a906a;
+    border: solid 1px #6a906a;
+    margin-right: 15px;
+
+    &:hover {
+      color: #6a906a;
+      background: transparent;
+    }
+  }
+
+  .delete {
+    background-color: #ad3a3a;
+    border: solid 1px #ad3a3a;
+
+    &:hover {
+      color: #ad3a3a;
+      background-color: transparent;
+    }
+  }
+}
+
+.my-categories {
+  font-weight: 600;
+}
+
+.account-details {
+  display: flex;
+  align-items: flex-start;
+
+  & > * {
+    width: 50%;
+    position: sticky;
+    top: 90px;
+  }
+
+  section {
+    margin-right: 30px;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+
+    &:not(:first-of-type) {
+      margin-top: 60px;
+    }
+  }
+}
+
+.account-articles {
+  margin-top: 60px;
+
+  p {
+    &:nth-of-type(2) {
+      font-weight: 600;
+      margin: 3px 0;
+    }
+  }
+
+  img {
+    width: 100px;
+    height: 120px;
+    object-fit: contain;
+  }
+}
