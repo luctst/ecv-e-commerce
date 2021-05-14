@@ -43,9 +43,80 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
             "inHomePage": true,
             "categoryId": 5
+        },
+        {
+            "id": 5,
+            "handle": "dr-martens-en-cuir-black-smooth",
+            "title": "Dr. Martens en cuir black smooth",
+            "brand": "Dr. Martens",
+            "price": "160.00",
+            "image": "https://medias-cache.citadium.com/fr/dr-martens-dr-martens-en-cuir-noir/image/97/1/2919971.129.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
+            "categoryId": 6
+        },
+        {
+            "id": 6,
+            "handle": "tee-shirt-col-rond-regular-fit",
+            "title": "Tee-shirt col rond regular-fit",
+            "brand": "Tealer",
+            "price": "35.00",
+            "image": "https://medias-cache.citadium.com/fr/tealer-tee-shirt-col-rond-regular-fit-serigraphie-en-coton-blanc/image/74/0/3063740.129.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
+            "categoryId": 9
+        },
+        {
+            "id": 7,
+            "handle": "aop-milano-mini-skirt-jupe",
+            "title": "AOP Milano mini skirt jupe",
+            "brand": "Calvin Klein Jeans",
+            "price": "69.00",
+            "image": "https://medias-cache.citadium.com/fr/calvin-klein-jeans-jupe-blanc/image/46/9/2899469.426.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
+            "categoryId": 1
+        },
+        {
+            "id": 8,
+            "handle": "timeless-script-robe",
+            "title": "Timeless script robe",
+            "brand": "Tommy Jeans",
+            "price": "90.00",
+            "image": "https://medias-cache.citadium.com/fr/tommy-jeans-robe-rouge/image/38/7/2965387.426.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
+            "categoryId": 4
+        },
+        {
+            "id": 9,
+            "handle": "dress-mazzy-robe",
+            "title": "Dress mazzy robe",
+            "brand": "Wasted",
+            "price": "70.00",
+            "image": "https://medias-cache.citadium.com/fr/wasted-robe-noir/image/21/6/3011216.426.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
+            "categoryId": 4
+        },
+        {
+            "id": 10,
+            "handle": "campo-chromefree",
+            "title": "Campo chromefree",
+            "brand": "Veja",
+            "price": "125.00",
+            "image": "https://medias-cache.citadium.com/fr/veja-campo-chromefree-jaune/image/56/5/3063565.426.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
+            "categoryId": 6
+        },
+        {
+            "id": 11,
+            "handle": "ua-old-skool-tapared-basket",
+            "title": "Ua old skool tapared basket",
+            "brand": "Vans",
+            "price": "90.00",
+            "image": "https://medias-cache.citadium.com/image/97/8/3066978.426.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
+            "categoryId": 6
         }
     ],
     "categories": [
+        { "name": "Toute l'actualité", "id": 0, "handle": "all"},
         { "name": "Jupes", "id": 1, "handle": "jupe" },
         { "name": "Vestes", "id": 2, "handle": "vestes" },
         { "name": "Chemises", "id": 3, "handle": "chemises" },
@@ -53,6 +124,7 @@
         { "name": "Sacs", "id": 5, "handle": "sacs" },
         { "name": "Chaussures", "id": 6, "handle": "chaussures" },
         { "name": "Pantalons", "id": 7, "handle": "pantalons" },
-        { "name": "Pulls", "id": 8, "handle": "pulls" }
+        { "name": "Pulls", "id": 8, "handle": "pulls" },
+        { "name" : "Tee-shirt", "id": 9, "handle": "tee-shirt"}
     ]
 }

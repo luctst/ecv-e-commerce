@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import './assets/scss/style.scss'
 import { TransitionGroup } from "react-transition-group";
-import { CSSTransition } from "react-transition-group";
+// import { CSSTransition } from "react-transition-group";
 import Layout from "./layouts/Layout";
 import Home from './views/Home';
 import Login from "./views/Login";
