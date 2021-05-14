@@ -8,7 +8,9 @@ function Categories({ articles }) {
         <section className="main-articles">
             <ul>
                 {articles.map((article, index) => {
-                    return <SmallArticle article={article} key={`article-${index}`}/>
+                    if (article.inHomePage) {
+                        return <SmallArticle article={article} key={`article-${index}`}/>
+                    }
                 })}
             </ul>
         </section>

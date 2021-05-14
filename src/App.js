@@ -2,6 +2,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect
 } from "react-router-dom";
 import './assets/scss/style.scss'
 import { TransitionGroup } from "react-transition-group";
@@ -23,7 +24,7 @@ const routes = [
     { path: '/', name: 'Home', Component: Home },
     { path: '/inscription', name: 'Register', Component: Register },
     { path: '/connexion', name: 'Login', Component: Login },
-    { path: '/mon-compte', name: 'Account', Component: Account },
+    { path: '/mon-compte', name: 'Account', Component: Account, checkRoute: { checkIfToken: true, redirectTo: '/connexion'} },
     { path: '/articles', name: 'Articles', Component: Articles },
     { path: '/articles/:id', name: 'Article', Component: Article },
     { path: '/article/creer', name: 'ArticleCreate', Component: ArticleCreate },
@@ -31,6 +32,13 @@ const routes = [
     { path: '/categorie/creer', name: 'CategoryCreate', Component: CategoryCreate },
     { path: '/categorie/modifier/:id', name: 'CategoryEdit', Component: CategoryEdit },
 ];
+
+function checkToken(Component, mustCheckToken, redirectPath, propsFromRoute) {
+    if (mustCheckToken && localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />
+    if (!mustCheckToken && !localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />
+
+    return <Redirect to={redirectPath}></Redirect>
+}
 
 function App() {
     return (
@@ -41,18 +49,6 @@ function App() {
                     <Switch>
                         {routes.map(({ path, Component }) => (
                             <Route key={path} exact path={path} component={Component}>
-                                {/* {({ match }) => (
-                                    <CSSTransition
-                                        in={match != null}
-                                        timeout={300}
-                                        classNames="page"
-                                        unmountOnExit
-                                    >
-                                        <div className="page">
-                                            <Component {...}/>
-                                        </div>
-                                    </CSSTransition>
-                                )} */}
                             </Route>
                         ))}
                     </Switch>

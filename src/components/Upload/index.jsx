@@ -31,7 +31,7 @@ class Upload extends React.Component {
                 </div>
                 <label>
                     <span>{this.props.children}</span>
-                    <input value={this.inputValue} required="required" type="text" onChange={this.handleChange}/>
+                    <input value={this.inputValue} type="text" onChange={this.handleChange}/>
                 </label>
             </div>
         );

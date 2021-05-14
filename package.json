@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "json-server": "^0.16.3",
+    "json-server-auth": "^2.0.2",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -20,7 +21,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "api": "json-server --watch db.json --port 4000",
+    "api": "json-server --watch db.json --port 4000 -m ./node_modules/json-server-auth",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

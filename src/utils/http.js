@@ -9,22 +9,22 @@ const http = axios.create({
 });
 
 http.interceptors.request.use(function (config) {
-    if (localStorage.getItem('token')) {
-        config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+    if (localStorage.getItem('accessToken')) {
+        config.headers.authorization = `Bearer ${localStorage.getItem('accessToken')}`;
     }
 
     return config;
 });
 
 http.interceptors.response.use(function (res) {
-    if (res.data.token) {
-        localStorage.setItem('token', res.data.token);
+    if (res.data.accessToken) {
+        localStorage.setItem('accessToken', res.data.accessToken);
     }
 
     return res;
 }, function (resError) {
-    if (resError.response.data.token) {
-        localStorage.setItem('token', resError.response.data.token);
+    if (resError.response.data.accessToken) {
+        localStorage.setItem('accessToken', resError.response.data.accessToken);
     }
 
     return Promise.reject(resError);
