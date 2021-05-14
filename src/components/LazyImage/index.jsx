@@ -1,34 +1,36 @@
 import './style.scss';
-import React from 'react';
 import placeholder from '../../assets/images/placeholder.png';
+import React from "react";
+
 
 class lazyImage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.src = this.props.src;
-        this.alt = this.props.alt;
         this.img = React.createRef();
-    }
+        this.state = {
+            activeSrc: placeholder
+        };
 
-    componentDidMount() {
-        const observer = new IntersectionObserver(entries => {
+        this.observer = new IntersectionObserver(entries => {
             entries.forEach((entry) => {
                 const image = entry.target;
                 if(entry.isIntersecting && image) {
-                    image.src = this.src;
-                    observer.unobserve(image);
+                    this.setState({ activeSrc: this.props.src });
+                    this.observer.unobserve(image);
                     image.addEventListener('load', () => image.classList.add('loaded'));
                 }
             })
         });
-        observer.POLL_INTERVAL = 500;
-        observer.observe(this.img.current);
+    }
+
+    componentDidMount() {
+        this.observer.observe(this.img.current);
     }
 
     render() {
         return <div className="img">
-            <img ref={this.img} src={placeholder} alt={this.alt}/>
+            <img ref={this.img} src={this.state.activeSrc} alt={this.props.alt}/>
         </div>
     }
 }

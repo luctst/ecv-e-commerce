@@ -1,7 +1,6 @@
 import './style.scss';
 import { useParams } from 'react-router-dom';
 import { connect } from "react-redux";
-import SmallArticle from "../SmallArticle";
 import List from "../List";
 
 function Search({ all_articles }) {
