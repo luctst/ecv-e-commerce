@@ -1,7 +1,8 @@
 import CategoryForm from "../components/CategoryForm";
 
 const category = {
-    name: 'Jupes'
+    name: 'Jupes',
+    image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"
 };
 
 function CategoryEdit() {
@@ -9,6 +10,7 @@ function CategoryEdit() {
         <CategoryForm
             title="Modifier la catégorie"
             name={category.name}
+            image={category.image}
             button="Modifier"
         />
     )
