@@ -1,55 +1,32 @@
-// import { useState } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
+
 import MainArticles from "../components/Home/MainArticles";
 import MainCollection from "../components/Home/MainCollection";
 import Categories from "../components/Home/Categories";
+import { fetchAllArticles, fetchAllCategory } from '../store/actions/creator';
 
-function Home(props) {
-    // const [state, setState] = useState({
-    //     test: true
-    // });
-
-    function parseClass(i) {
-        let str = 'col-4 rounded-1 border ';
-
-        if (i === 0) return str.concat('border-primary');
-        if (i === 1) return str.concat('border-warning');
-        if (i === 2) return str.concat('border-dark')
-    }
+function Home({ fetchAllArticles, fetchAllCategory }) {
+    useEffect(function () {
+        (async function () {
+            await Promise.all([
+                fetchAllArticles(),
+                fetchAllCategory()
+            ])
+        })()
+    }, []);
 
     return (
         <>
             <MainCollection/>
             <MainArticles/>
-            <Categories/>
-            <div>
-                {
-                    Object.keys(props.tasks).map((task, index) => {
-                        return (
-                            <div className={parseClass(index)} key={index}>
-                                <div>
-                                    <p className="text-center">{task}</p>
-                                </div>
-                                <section>
-                                    <ul>
-                                        {
-                                            props.tasks[task].map((item, y) => <li key={y} onClick={() => props.dispatch({ type: 'SWITCH_TASK', data: { columnIndex: index, item, itemIndex: y }})}>{item} </li>)
-                                        }
-                                    </ul>
-                                </section>
-                            </div>
-                        );
-                    })
-                }
-            </div>
+            <Categories/> 
         </>
     );
 }
 
-function mapStateToProps(state) {
-    return {
-        tasks: state.handleTasks.tasks
-    }
-}
-
-export default connect(mapStateToProps)(Home);
+export default connect(
+    null,
+    { fetchAllArticles, fetchAllCategory }
+    )
+    (Home);

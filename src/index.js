@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import { initstore} from './store/index';
 import App from './App';
@@ -9,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={createStore(initstore)}>
+    <Provider store={createStore(initstore, applyMiddleware(thunk))}>
       <App />
     </Provider>
   </React.StrictMode>,

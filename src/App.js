@@ -40,8 +40,8 @@ function App() {
                     <ScrollToTop/>
                     <Switch>
                         {routes.map(({ path, Component }) => (
-                            <Route key={path} exact path={path}>
-                                {({ match }) => (
+                            <Route key={path} exact path={path} component={Component}>
+                                {/* {({ match }) => (
                                     <CSSTransition
                                         in={match != null}
                                         timeout={300}
@@ -49,10 +49,10 @@ function App() {
                                         unmountOnExit
                                     >
                                         <div className="page">
-                                            <Component />
+                                            <Component {...}/>
                                         </div>
                                     </CSSTransition>
-                                )}
+                                )} */}
                             </Route>
                         ))}
                     </Switch>

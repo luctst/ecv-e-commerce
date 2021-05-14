@@ -1,18 +1,9 @@
+import { connect } from 'react-redux';
+
 import './style.scss';
 import LinkButton from "../../LinkButton";
 
-const categories = [
-    {name: "Jupes", id: 1, handle: "jupe"},
-    {name: "Vestes", id: 2, handle: "vestes"},
-    {name: "Chemises", id: 3, handle: "chemises"},
-    {name: "Robes", id: 4, handle: "robes"},
-    {name: "Sacs", id: 5, handle: "sacs"},
-    {name: "Chaussures", id: 6, handle: "chaussures"},
-    {name: "Pantalons", id: 7, handle: "pantalons"},
-    {name: "Pulls", id: 8, handle: "pulls"}
-];
-
-function SmallArticle() {
+function SmallArticle({ categories }) {
     return (
         <section className="home-categories">
             <h2>Toutes nos catégories</h2>
@@ -27,4 +18,10 @@ function SmallArticle() {
     );
 }
 
-export default SmallArticle;
+function mapStateToProps (state) {
+    return {
+        categories: state.category
+    }
+}
+
+export default connect(mapStateToProps)(SmallArticle);

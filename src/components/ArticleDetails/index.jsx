@@ -1,22 +1,10 @@
+import { connect } from 'react-redux';
+
 import './style.scss';
 import LazyImage from "../LazyImage";
 import LinkButton from "../LinkButton";
 
-const article = {
-    id: 1,
-    handle: 'chemise-a-fleur',
-    title: "Chemise à fleur",
-    brand: "Levi's",
-    price: "79.00",
-    image: "https://medias-cache.citadium.com/fr/levis-chemise-bleu/image/35/8/3025358.426.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
-    category: {
-        name: 'Chemises',
-        handle: 'chemises'
-    }
-};
-
-function ArticleDetails() {
+function ArticleDetails({ article }) {
     return (
         <section className="article-details">
             <LazyImage src={article.image} alt={article.title}/>
@@ -31,4 +19,19 @@ function ArticleDetails() {
     )
 }
 
-export default ArticleDetails;
+function mapStateToProps (state, ownProps) {
+    const article = state.articles.find(article => article.id === parseInt(ownProps.articleId))
+    const category = state.category.find(cat => cat.id === article.id);
+
+    return {
+        article: {
+            ...article,
+            category: {
+                handle: category.handle,
+                name: category.name
+            }
+        }
+    }
+}
+
+export default connect(mapStateToProps)(ArticleDetails);

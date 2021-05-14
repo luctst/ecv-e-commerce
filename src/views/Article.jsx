@@ -1,8 +1,8 @@
 import ArticleDetails from "../components/ArticleDetails";
 
-function Article() {
+function Article(props) {
     return (
-        <ArticleDetails/>
+        <ArticleDetails articleId={props.match.params.id}/>
     )
 }
 
