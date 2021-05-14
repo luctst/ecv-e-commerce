@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './style.scss';
 import SmallArticle from "../SmallArticle";
 import CategoriesRadio from "../CategoriesRadio";
+import List from "../List";
 
 function ArticlesList({ articles }) {
     return (
@@ -13,11 +14,7 @@ function ArticlesList({ articles }) {
                     <CategoriesRadio/>
                 </form>
             </div>
-            <ul className="list">
-                {articles.map((article, index) => {
-                    return <SmallArticle key={`article-${index}`} article={article}/>
-                })}
-            </ul>
+            <List articles={articles}/>
         </section>
     );
 }

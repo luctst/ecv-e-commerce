@@ -5,10 +5,19 @@ import { Link } from "react-router-dom";
 import Input from "../Input";
 import Button from "../Button";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Header() {
 
+    let history = useHistory();
     const [open, setOpen] = useState(false);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const terms = new FormData(event.target).get('terms');
+        history.push(`/recherche/${terms}`);
+        setOpen(false);
+    };
 
     return (
         <header>
@@ -39,8 +48,8 @@ function Header() {
                 </ul>
             </nav>
             {open && (
-                <form className="search">
-                    <Input type="text" required={true}>Rechercher</Input>
+                <form className="search"  onSubmit={handleSubmit}>
+                    <Input type="text" required={true} name="terms">Rechercher</Input>
                     <Button type="submit">OK</Button>
                 </form>
             )}

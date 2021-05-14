@@ -19,6 +19,7 @@ import CategoryCreate from "./views/CategoryCreate";
 import CategoryEdit from "./views/CategoryEdit";
 import ArticleCreate from "./views/ArticleCreate";
 import ArticleEdit from "./views/ArticleEdit";
+import SearchResults from "./views/SearchResults";
 
 const routes = [
     { path: '/', name: 'Home', Component: Home },
@@ -31,11 +32,12 @@ const routes = [
     { path: '/article/modifier/:id', name: 'ArticleEdit', Component: ArticleEdit },
     { path: '/categorie/creer', name: 'CategoryCreate', Component: CategoryCreate },
     { path: '/categorie/modifier/:id', name: 'CategoryEdit', Component: CategoryEdit },
+    { path: '/recherche/:terms', name: 'SearchResults', Component: SearchResults },
 ];
 
 function checkToken(Component, mustCheckToken, redirectPath, propsFromRoute) {
-    if (mustCheckToken && localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />
-    if (!mustCheckToken && !localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />
+    if (mustCheckToken && localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />;
+    if (!mustCheckToken && !localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />;
 
     return <Redirect to={redirectPath}></Redirect>
 }
