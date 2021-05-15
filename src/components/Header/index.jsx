@@ -1,13 +1,25 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import './style.scss';
 import logo from '../../assets/images/logo.svg';
 import search from '../../assets/images/icons/search.svg';
+import Input from "../Input";
+import Button from "../Button";
 
 function Header({ userConnected }) {
     const [redirect, setRedirect] = useState(false);
+    let history = useHistory();
+    const [open, setOpen] = useState(false);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const terms = new FormData(event.target).get('terms');
+        history.push(`/recherche/${terms}`);
+        setOpen(false);
+    };
 
     function disconnect(e) {
         e.preventDefault();
