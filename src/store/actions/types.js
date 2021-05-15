@@ -5,6 +5,9 @@ const actionsTypes = {
     category: {
         GET_ALL_CATEGORIES: 'GET_ALL_CATEGORIES'
     },
+    users: {
+        POPULATE_USER: 'POPULATE_USER'
+    }
 };
 
 export default actionsTypes;

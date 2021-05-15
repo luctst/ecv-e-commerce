@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from  'react-router-dom';
 
 import './style.scss';
 import Button from "../../Button";
 import Upload from "../../Upload";
 import http from '../../../utils/http';
+import { populateUser } from '../../../store/actions/creator';
 
-function RegisterForm() {
+function RegisterForm({ populateUser }) {
     const [formData] = useState([
         { type: 'text', required: true, label: 'Nom', ref: 'surName'},
         { type: 'text', required: true, label: 'Prénom', ref: 'name'},
@@ -14,6 +17,7 @@ function RegisterForm() {
         { type: 'password', required: true, label: 'Confirmation du mot de passe'}
     ]);
     const [postNewUser, setPostNewUser] = useState({});
+    const [redirect, setRedirect] = useState(false);
 
     function updateDataToPost(value, inputData) {
         const newUser = { ...postNewUser };
@@ -34,10 +38,20 @@ function RegisterForm() {
 
             if (ok) {
                 await http.post('/register', postNewUser);
+
+                const cpNewUser = { ...postNewUser };
+                cpNewUser.password = undefined;
+
+                populateUser(cpNewUser);
+                setRedirect(true);
             }
         } catch (error) {
             throw error;
         }
+    }
+
+    if (redirect) {
+        return <Redirect to="/"/>
     }
 
     return (
@@ -61,4 +75,8 @@ function RegisterForm() {
     )
 }
 
-export default RegisterForm;
+
+export default connect(
+    null,
+    { populateUser }
+)(RegisterForm);

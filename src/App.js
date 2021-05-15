@@ -20,17 +20,25 @@ import CategoryEdit from "./views/CategoryEdit";
 import ArticleCreate from "./views/ArticleCreate";
 import ArticleEdit from "./views/ArticleEdit";
 
+
+function createCheckRoute (checkToken, pathToRedirect) {
+    return {
+        checkIfToken: checkToken,
+        redirectTo: pathToRedirect
+    }
+}
+
 const routes = [
     { path: '/', name: 'Home', Component: Home },
     { path: '/inscription', name: 'Register', Component: Register },
-    { path: '/connexion', name: 'Login', Component: Login },
-    { path: '/mon-compte', name: 'Account', Component: Account, checkRoute: { checkIfToken: true, redirectTo: '/connexion'} },
+    { path: '/connexion', name: 'Login', Component: Login, checkRoute: createCheckRoute(false, '/') },
+    { path: '/mon-compte', name: 'Account', Component: Account, checkRoute: createCheckRoute(true, '/connexion') },
     { path: '/articles', name: 'Articles', Component: Articles },
     { path: '/articles/:id', name: 'Article', Component: Article },
-    { path: '/article/creer', name: 'ArticleCreate', Component: ArticleCreate },
-    { path: '/article/modifier/:id', name: 'ArticleEdit', Component: ArticleEdit },
-    { path: '/categorie/creer', name: 'CategoryCreate', Component: CategoryCreate },
-    { path: '/categorie/modifier/:id', name: 'CategoryEdit', Component: CategoryEdit },
+    { path: '/article/creer', name: 'ArticleCreate', Component: ArticleCreate, checkRoute: createCheckRoute(true, '/connexion') },
+    { path: '/article/modifier/:id', name: 'ArticleEdit', Component: ArticleEdit, checkRoute: createCheckRoute(true, '/connexion') },
+    { path: '/categorie/creer', name: 'CategoryCreate', Component: CategoryCreate, checkRoute: createCheckRoute(true, '/connexion')},
+    { path: '/categorie/modifier/:id', name: 'CategoryEdit', Component: CategoryEdit, checkRoute: createCheckRoute(true, '/connexion') },
 ];
 
 function checkToken(Component, mustCheckToken, redirectPath, propsFromRoute) {
@@ -47,8 +55,11 @@ function App() {
                 <TransitionGroup>
                     <ScrollToTop/>
                     <Switch>
-                        {routes.map(({ path, Component }) => (
-                            <Route key={path} exact path={path} component={Component}>
+                        {routes.map(({ path, Component, checkRoute }) => (
+                            <Route key={path} exact path={path} render={function (props) {
+                                if (!checkRoute) return <Component { ...props }/>
+                                return checkToken(Component, checkRoute.checkIfToken, checkRoute.redirectTo, props);
+                            }}>
                             </Route>
                         ))}
                     </Switch>

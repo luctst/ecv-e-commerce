@@ -20,3 +20,10 @@ export function fetchAllCategory() {
         })
     }
 }
+
+export function populateUser(data) {
+    return {
+        type: actionsTypes.users.POPULATE_USER,
+        data,
+    }
+}
