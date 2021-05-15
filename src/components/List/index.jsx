@@ -5,7 +5,14 @@ function List(props) {
     return (
         <ul className="list">
             {props.articles.map((article, index) => {
-                return <SmallArticle key={`article-${index}`} article={article}/>
+                if (
+                    props.filter === 0 ||
+                    props.filter === article.categoryId
+                ) {
+                    return <SmallArticle key={`article-${index}`} article={article}/>
+                }
+
+                return null;
             })}
         </ul>
     );
