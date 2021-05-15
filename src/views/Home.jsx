@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import MainArticles from "../components/Home/MainArticles";
 import MainCollection from "../components/Home/MainCollection";
 import Categories from "../components/Home/Categories";
-import { fetchAllArticles, fetchAllCategory } from '../store/actions/creator';
+import { fetchAllArticles } from '../store/articles/actions';
+import { fetchAllCategory } from '../store/category/actions'
 
 function Home({ fetchAllArticles, fetchAllCategory }) {
     useEffect(function () {

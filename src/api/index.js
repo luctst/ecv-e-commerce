@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const http = axios.create({
+const api = axios.create({
     baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : process.env.REACT_APP_API_URL_PROD,
     headers: {
         'Content-Type': 'application/json'
@@ -8,7 +8,7 @@ const http = axios.create({
     withCredentials: true
 });
 
-http.interceptors.request.use(function (config) {
+api.interceptors.request.use(function (config) {
     if (localStorage.getItem('accessToken')) {
         config.headers.authorization = `Bearer ${localStorage.getItem('accessToken')}`;
     }
@@ -16,7 +16,7 @@ http.interceptors.request.use(function (config) {
     return config;
 });
 
-http.interceptors.response.use(function (res) {
+api.interceptors.response.use(function (res) {
     if (res.data.accessToken) {
         localStorage.setItem('accessToken', res.data.accessToken);
     }
@@ -30,4 +30,4 @@ http.interceptors.response.use(function (res) {
     return Promise.reject(resError);
 });
 
-export default http;
+export default api;

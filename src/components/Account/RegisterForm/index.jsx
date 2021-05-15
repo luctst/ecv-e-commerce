@@ -5,8 +5,8 @@ import { Redirect } from  'react-router-dom';
 import './style.scss';
 import Button from "../../Button";
 import Upload from "../../Upload";
-import http from '../../../utils/http';
-import { populateUser } from '../../../store/actions/creator';
+import api from '../../../api';
+import { populateUser } from '../../../store/users/actions';
 
 function RegisterForm({ populateUser }) {
     const [formData] = useState([
@@ -36,7 +36,7 @@ function RegisterForm({ populateUser }) {
             const ok = dataToInclude.every(check => postNewUser.hasOwnProperty(check));
 
             if (ok) {
-                await http.post('/register', postNewUser);
+                await api.post('/register', postNewUser);
 
                 const cpNewUser = { ...postNewUser };
                 cpNewUser.password = undefined;

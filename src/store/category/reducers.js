@@ -1,8 +1,6 @@
-import actionsTypes from '../actions/types';
+import actionsTypes from '../types';
 
-const store = [];
-
-function categoryReducers(state = [...store], action) {
+function categoryReducers(state = [], action) {
     switch (action.type) {
         case actionsTypes.category.GET_ALL_CATEGORIES:
             return state = action.data;

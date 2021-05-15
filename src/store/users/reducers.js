@@ -1,10 +1,10 @@
-import actionsTypes from '../actions/types';
+import actionsTypes from '../types';
 
-const store = {
+const initialValue = {
     connected: null
 };
 
-function usersReducers(state = { ...store }, action) {
+function usersReducers(state = initialValue, action) {
     switch (action.type) {
         case actionsTypes.users.POPULATE_USER:
             state.connected = action.data;

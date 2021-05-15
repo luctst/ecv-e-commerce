@@ -1,8 +1,6 @@
-import actionsTypes from '../actions/types';
+import actionsTypes from '../types';
 
-const store = [];
-
-function articlesReducers(state = [ ...store ], action) {
+function articlesReducers(state = [], action) {
     switch (action.type) {
         case actionsTypes.articles.GET_ALL_ARTICLES:
             return state = action.data;

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { connect } from 'react-redux';
 import { Redirect } from "react-router";
 
-import { populateUser } from '../../../store/actions/creator';
-import http from '../../../utils/http';
+import { populateUser } from '../../../store/users/actions';
+import api from '../../../api';
 import './style.scss';
 import Button from "../../Button";
 
@@ -22,7 +22,7 @@ function LoginForm({ populateUser }) {
         try {
             e.preventDefault();
 
-            await http.post('/login', dataToLog);
+            await api.post('/login', dataToLog);
 
             populateUser(dataToLog);
             setRedirect(true);
