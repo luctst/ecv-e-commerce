@@ -4,9 +4,16 @@ import CategoriesRadio from "../CategoriesRadio";
 import List from "../List";
 import { useState } from "react";
 
-function ArticlesList({ all_articles }) {
+function ArticlesList({ all_articles, categories }) {
 
     const [articles, setArticles] = useState(all_articles);
+    let params = new URLSearchParams(window.location.search);
+    let categoryHandle = params.get('categorie');
+    let category;
+    if (categoryHandle && categoryHandle !== '') {
+        category = categories.find(c => c.handle === categoryHandle);
+    }
+    category = category ? category.id : 0;
 
     function handleChange(categoryId) {
         setArticles(categoryId === 0 ? all_articles : all_articles.filter(a => a.categoryId === categoryId))
@@ -17,7 +24,7 @@ function ArticlesList({ all_articles }) {
             <div className="head">
                 <h1>Nos articles</h1>
                 <form>
-                    <CategoriesRadio onChange={handleChange}/>
+                    <CategoriesRadio selected={category} onChange={handleChange}/>
                 </form>
             </div>
             <List articles={articles}/>
@@ -27,7 +34,8 @@ function ArticlesList({ all_articles }) {
 
 function mapStateToProps (state) {
     return {
-        all_articles: state.articles
+        all_articles: state.articles,
+        categories: state.category
     }
 }
 
