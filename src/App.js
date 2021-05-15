@@ -19,6 +19,7 @@ import CategoryCreate from "./views/CategoryCreate";
 import CategoryEdit from "./views/CategoryEdit";
 import ArticleCreate from "./views/ArticleCreate";
 import ArticleEdit from "./views/ArticleEdit";
+import SearchResults from "./views/SearchResults";
 
 
 function createCheckRoute (checkToken, pathToRedirect) {
@@ -42,8 +43,8 @@ const routes = [
 ];
 
 function checkToken(Component, mustCheckToken, redirectPath, propsFromRoute) {
-    if (mustCheckToken && localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />
-    if (!mustCheckToken && !localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />
+    if (mustCheckToken && localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />;
+    if (!mustCheckToken && !localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />;
 
     return <Redirect to={redirectPath}></Redirect>
 }

@@ -51,12 +51,18 @@ function Header({ userConnected }) {
                             )
                     }
                     <li>
-                        <Link to="/">
+                        <button onClick={() => setOpen(!open)}>
                             <img src={search} alt="Faire une recherche"/>
-                        </Link>
+                        </button>
                     </li>
                 </ul>
             </nav>
+            {open && (
+                <form className="search"  onSubmit={handleSubmit}>
+                    <Input type="text" required={true} name="terms">Rechercher</Input>
+                    <Button type="submit">OK</Button>
+                </form>
+            )}
         </header>
     );
 }

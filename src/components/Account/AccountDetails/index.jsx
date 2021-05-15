@@ -56,14 +56,14 @@ const articles = [
 ];
 
 const categories = [
-    {name: "Jupes", id: 1, handle: "jupe"},
-    {name: "Vestes", id: 2, handle: "vestes"},
-    {name: "Chemises", id: 3, handle: "chemises"},
-    {name: "Robes", id: 4, handle: "robes"},
-    {name: "Sacs", id: 5, handle: "sacs"},
-    {name: "Chaussures", id: 6, handle: "chaussures"},
-    {name: "Pantalons", id: 7, handle: "pantalons"},
-    {name: "Pulls", id: 8, handle: "pulls"}
+    {name: "Jupes", id: 1, handle: "jupe", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"},
+    {name: "Vestes", id: 2, handle: "vestes", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"},
+    {name: "Chemises", id: 3, handle: "chemises", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"},
+    {name: "Robes", id: 4, handle: "robes", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"},
+    {name: "Sacs", id: 5, handle: "sacs", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"},
+    {name: "Chaussures", id: 6, handle: "chaussures", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"},
+    {name: "Pantalons", id: 7, handle: "pantalons", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"},
+    {name: "Pulls", id: 8, handle: "pulls", image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"}
 ];
 
 function AccountDetails() {
@@ -79,7 +79,12 @@ function AccountDetails() {
                     <table className="my-categories">
                         {categories.map((category, index) => {
                             return <tr key={`my-category-${index}`}>
-                                <td>{category.name}</td>
+                                <td>
+                                    <div>
+                                    <img src={category.image} alt={category.name}/>
+                                    <p>{category.name}</p>
+                                    </div>
+                                </td>
                                 <td>
                                     <div>
                                         <Link to={`/categorie/modifier/${category.handle}`} className="modify">Modifier</Link>

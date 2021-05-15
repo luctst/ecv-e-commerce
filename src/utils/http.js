@@ -23,7 +23,7 @@ http.interceptors.response.use(function (res) {
 
     return res;
 }, function (resError) {
-    if (resError.response.data.accessToken) {
+    if (resError && resError.response && resError.response.data && resError.response.data.accessToken) {
         localStorage.setItem('accessToken', resError.response.data.accessToken);
     }
 
