@@ -9,6 +9,6 @@ function categoryReducers(state = [...store], action) {
         default:
             return state;
     }
-};
+}
 
 export default categoryReducers;

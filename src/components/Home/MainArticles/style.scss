@@ -1,17 +1,5 @@
 .main-articles {
 
-  ul {
-    display: flex;
-  }
-
-  li {
-    width: calc((100% - 60px) / 2);
-
-    &:not(:first-of-type) {
-      margin-left: 30px;
-    }
-  }
-
   h2 {
     font-size: 20px;
   }

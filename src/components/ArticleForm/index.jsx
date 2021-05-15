@@ -11,7 +11,7 @@ function ArticleForm(props) {
         <form className="article-form">
             <h1>{props.pageTitle}</h1>
             <CategoriesRadio>
-                <LinkButton link="/category/creer">Créer une catégorie</LinkButton>
+                <LinkButton routeData="/category/creer">Créer une catégorie</LinkButton>
             </CategoriesRadio>
             <div>
                 <Upload image={props.image}>Url de la photo</Upload>

@@ -9,6 +9,6 @@ function articlesReducers(state = [ ...store ], action) {
         default:
             return state;
     }
-};
+}
 
 export default articlesReducers;

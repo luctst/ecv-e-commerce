@@ -23,11 +23,15 @@ function ArticlesList({ articles, categories , location }) {
         <section className="articles">
             <div className="head">
                 <h1>Nos articles</h1>
-                <form>
-                    <CategoriesRadio selected={filter} onChange={handleChange}/>
-                </form>
+                {categories && categories.length &&
+                    <form>
+                        <CategoriesRadio selected={filter} onChange={handleChange}/>
+                    </form>
+                }
             </div>
-            <List articles={articles} filter={filter}/>
+            {articles && articles.length &&
+                <List articles={articles} filter={filter}/>
+            }
         </section>
     );
 }

@@ -20,7 +20,6 @@ function Informations() {
                 <Input value={account.firstname} type="text" required={true}>Prénom</Input>
                 <Input value={account.email} type="email" required={true}>Email</Input>
                 <Input value={account.password} type="password" required={true}>Mot de passe</Input>
-                <Input type="password" required={true}>Confirmation du mot de passe</Input>
                 <Button type="submit">Modifier mes informations</Button>
             </form>
         </section>

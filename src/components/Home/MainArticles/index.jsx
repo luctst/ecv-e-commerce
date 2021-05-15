@@ -1,18 +1,13 @@
 import { connect } from 'react-redux';
-
 import './style.scss';
-import SmallArticle from "../../SmallArticle";
+import List from "../../List";
 
 function Categories({ articles }) {
     return (
         <section className="main-articles">
-            <ul>
-                {articles.map((article, index) => {
-                    if (article.inHomePage) {
-                        return <SmallArticle article={article} key={`article-${index}`}/>
-                    }
-                })}
-            </ul>
+            {articles && articles.length &&
+                <List articles={articles.slice(0, 4)} filter={0}/>
+            }
         </section>
     );
 }

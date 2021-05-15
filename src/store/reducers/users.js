@@ -12,6 +12,6 @@ function usersReducers(state = { ...store }, action) {
         default:
             return state;
     }
-};
+}
 
 export default usersReducers;

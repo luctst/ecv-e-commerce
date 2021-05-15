@@ -13,8 +13,7 @@ function RegisterForm({ populateUser }) {
         { type: 'text', required: true, label: 'Nom', ref: 'surName'},
         { type: 'text', required: true, label: 'Prénom', ref: 'name'},
         { type: 'email', required: true, label: 'Email', ref: 'email'},
-        { type: 'password', required: true, label: 'Mot de passe', ref: 'password'},
-        { type: 'password', required: true, label: 'Confirmation du mot de passe'}
+        { type: 'password', required: true, label: 'Mot de passe', ref: 'password'}
     ]);
     const [postNewUser, setPostNewUser] = useState({});
     const [redirect, setRedirect] = useState(false);
