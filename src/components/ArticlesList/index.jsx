@@ -2,10 +2,17 @@ import { connect } from 'react-redux';
 import './style.scss';
 import CategoriesRadio from "../CategoriesRadio";
 import List from "../List";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function ArticlesList({ articles, categories }) {
+function ArticlesList({ articles, categories , location }) {
     const [filter, setFilter] = useState(0);
+
+    useEffect(function () {
+        if (location.state) {
+            setFilter(location.state.categoryId)
+        }
+    }, []);
+
 
     function handleChange(categoryId) {
         if (filter === categoryId) return false;

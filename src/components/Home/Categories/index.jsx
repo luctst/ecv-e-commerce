@@ -10,7 +10,7 @@ function SmallArticle({ categories }) {
             <ul>
                 {categories.map((category, index) => {
                     return <li key={`category-${index}`}>
-                        <LinkButton link={`/articles?categorie=${category.handle}`}>{category.name}</LinkButton>
+                        <LinkButton routeData={{ pathname: "/articles", state: { categoryId: category.id }}}>{category.name}</LinkButton>
                     </li>
                 })}
             </ul>

@@ -9,7 +9,7 @@ function ArticleDetails({ article }) {
         <section className="article-details">
             <LazyImage src={article.image} alt={article.title}/>
             <div>
-                <LinkButton link={`/articles?categorie=${article.category.handle}`}>{article.category.name}</LinkButton>
+                <LinkButton routeData={{ pathname: '/articles', state: { categoryId: article.categoryId}}}>{article.category.name}</LinkButton>
                 <p className="brand">{article.brand}</p>
                 <h1>{article.title}</h1>
                 <p className="price">{article.price}€</p>
@@ -21,7 +21,7 @@ function ArticleDetails({ article }) {
 
 function mapStateToProps (state, ownProps) {
     const article = state.articles.find(article => article.id === parseInt(ownProps.articleId))
-    const category = state.category.find(cat => cat.id === article.id);
+    const category = state.category.find(cat => cat.id === article.categoryId);
 
     return {
         article: {

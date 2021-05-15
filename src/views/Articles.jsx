@@ -1,8 +1,8 @@
 import ArticlesList from "../components/ArticlesList";
 
-function Articles() {
+function Articles(props) {
     return (
-        <ArticlesList/>
+        <ArticlesList {...props}/>
     )
 }
 
