@@ -1,19 +1,75 @@
+import { connect } from 'react-redux';
+import { useState } from 'react';
+import { Redirect } from 'react-router';
+
 import './style.scss';
-import Input from '../Input';
 import Button from '../Button';
 import Upload from "../Upload";
+import api from '../../api/index';
+import { addNewCategory } from '../../store/category/actions';
 
-function CategoryForm(props) {
+function CategoryForm({ userData, title, image, button, addNewCategory }) {
+    const [newCategory, setNewCategory] = useState({
+        userId: userData.userId
+    });
+    const [redirect, setRedirect] = useState(false);
+
+    function updateNewCategory (e) {
+        const cpNewCategory = { ...newCategory };
+        const valueTrim = e.target.value.trim().toLowerCase();
+
+        cpNewCategory.name = e.target.value;
+
+        if (valueTrim.includes(' ')) {
+            const stringSplit = valueTrim.split(' ').join('-');
+
+            cpNewCategory.handle = stringSplit;
+            return setNewCategory(cpNewCategory);
+        }
+
+        cpNewCategory.handle = valueTrim;
+        return setNewCategory(cpNewCategory);
+    }
+
+    async function postNewCategory (e) {
+        try {
+            e.preventDefault();
+
+            await api.post('/categories', newCategory);
+
+            addNewCategory(newCategory);
+            setRedirect(true);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    if (redirect) {
+        return <Redirect to="/mon-compte"/>
+    }
+
     return (
         <div className="categories-form">
-            <h1>{props.title}</h1>
-            <form>
-                <Input type="text" required={true} value={props.name}>Nom de la catégorie</Input>
-                <Upload image={props.image}>Photo de la catégorie</Upload>
-                <Button type="submit">{props.button}</Button>
+            <h1>{title}</h1>
+            <form onSubmit={postNewCategory}>
+                <label>
+                    <span>Nom de la catégorie</span>
+                    <input type="text" required="required" onChange={updateNewCategory}/>
+                </label>
+                <Upload image={image}>Photo de la catégorie</Upload>
+                <Button type="submit">{button}</Button>
             </form>
         </div>
     )
 }
 
-export default CategoryForm;
+function mapStateToProps (state) {
+    return {
+        userData: state.users.connected
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { addNewCategory }
+)(CategoryForm);

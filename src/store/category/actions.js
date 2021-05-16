@@ -10,3 +10,10 @@ export function fetchAllCategory() {
         })
     }
 }
+
+export function addNewCategory (newCategory) {
+    return {
+        type: actionsTypes.category.ADD_NEW_CATEGORY,
+        data: newCategory
+    }
+}

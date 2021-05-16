@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { connect } from 'react-redux';
 import { Redirect } from "react-router";
+import { decode } from 'jsonwebtoken';
 
 import { populateUser } from '../../../store/users/actions';
 import api from '../../../api';
@@ -24,7 +25,9 @@ function LoginForm({ populateUser }) {
 
             await api.post('/login', dataToLog);
 
-            populateUser(dataToLog);
+            const jwtData = decode(localStorage.getItem('accessToken'));
+
+            populateUser({ email: jwtData.email, userId: parseInt(jwtData.sub)});
             setRedirect(true);
         } catch (error) {
             throw error;
