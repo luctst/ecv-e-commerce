@@ -198,6 +198,12 @@
       "name": "Lunettes de soleil",
       "handle": "lunettes-de-soleil",
       "id": 10
+    },
+    {
+      "image": "",
+      "name": "jogging",
+      "handle": "jogging",
+      "id": 11
     }
   ],
   "users": [

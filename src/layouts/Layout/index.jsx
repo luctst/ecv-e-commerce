@@ -3,10 +3,13 @@ import React, { useEffect } from 'react';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { fetchAllArticles } from '../../store/articles/actions';
-import { fetchAllCategory } from '../../store/category/actions'
+import { fetchAllCategory } from '../../store/category/actions';
+import { populateUser } from '../../store/users/actions';
+
+import { decode } from 'jsonwebtoken';
 import { connect } from "react-redux";
 
-const Layout = ({children, fetchAllArticles, fetchAllCategory}) => {
+const Layout = ({children, fetchAllArticles, fetchAllCategory, populateUser }) => {
 
     useEffect(function () {
         (async function () {
@@ -14,6 +17,11 @@ const Layout = ({children, fetchAllArticles, fetchAllCategory}) => {
                 fetchAllArticles(),
                 fetchAllCategory()
             ])
+
+            if (localStorage.getItem('accessToken')) {
+                const jwtData = decode(localStorage.getItem('accessToken'));
+                populateUser({ email: jwtData.email, userId: parseInt(jwtData.sub) });
+            }
         })()
     }, []);
 
@@ -28,6 +36,6 @@ const Layout = ({children, fetchAllArticles, fetchAllCategory}) => {
 
 export default connect(
     null,
-    {fetchAllArticles, fetchAllCategory}
+    {fetchAllArticles, fetchAllCategory, populateUser }
 )
 (Layout);
