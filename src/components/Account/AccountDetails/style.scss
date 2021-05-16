@@ -51,6 +51,10 @@
     min-width: 100px;
   }
 
+  .delete:hover {
+    cursor: pointer;
+  }
+
   .modify {
     background: #6a906a;
     border: solid 1px #6a906a;

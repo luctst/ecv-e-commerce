@@ -185,18 +185,6 @@
       "id": 9,
       "handle": "tee-shirt",
       "userId": 3
-    },
-    {
-      "userId": 3,
-      "name": "test new category",
-      "handle": "test-new-category",
-      "id": 10
-    },
-    {
-      "userId": 3,
-      "name": "sdkgdflkgljdflkgjd",
-      "handle": "sdkgdflkgljdflkgjd",
-      "id": 11
     }
   ],
   "users": [

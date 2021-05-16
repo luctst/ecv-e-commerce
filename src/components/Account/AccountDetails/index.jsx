@@ -4,8 +4,19 @@ import './style.scss';
 import Informations from "../Informations";
 import LinkButton from "../../LinkButton";
 import { Link } from "react-router-dom";
+import api from '../../../api/index';
+import { deleteCategory } from '../../../store/category/actions';
 
-function AccountDetails({ articles, categories }) {
+function AccountDetails({ articles, categories, deleteCategory }) {
+    async function deleteCategory (categoryId) {
+        try {
+            await api.delete(`/600/categories/${categoryId}`);
+            deleteCategory(categoryId);
+        } catch (error) {
+            throw error;
+        }
+    }
+
     return (
         <div className="page-account">
             <h1>Mon compte</h1>
@@ -28,7 +39,7 @@ function AccountDetails({ articles, categories }) {
                                     <td>
                                         <div>
                                             <Link to={`/categorie/modifier/${category.handle}`} className="modify">Modifier</Link>
-                                            <Link to="/" className="delete">Supprimer</Link>
+                                            <button className="delete" onClick={() => deleteCategory(category.id)}>Supprimer</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -67,11 +78,13 @@ function AccountDetails({ articles, categories }) {
 }
 
 function mapStateToProps (state) {
-    console.log(state);
     return {
         articles: state.articles.filter(article => article.userId === state.users.connected.userId),
-        categories: state.category.filter(categori => categori.userId === state.users.connected.userId)
+        categories: state.category.filter(categori => categori.userId === state.users.connected.userId),
     }
 };
 
-export default connect(mapStateToProps)(AccountDetails);
+export default connect(
+    mapStateToProps,
+    { deleteCategory }
+)(AccountDetails);

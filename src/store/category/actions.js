@@ -17,3 +17,10 @@ export function addNewCategory (newCategory) {
         data: newCategory
     }
 }
+
+export function deleteCategory (categoryId) {
+    return {
+        type: actionsTypes.category.DELETE_CATEGORY,
+        date: categoryId
+    }
+}

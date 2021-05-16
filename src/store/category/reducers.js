@@ -7,6 +7,11 @@ function categoryReducers(state = [], action) {
         case actionsTypes.category.ADD_NEW_CATEGORY:
             state.push(action.data);
             return state;
+        case actionsTypes.category.DELETE_CATEGORY:
+            return state.splice(
+                state.findIndex(cat => cat.id === action.data),
+                1
+            );
         default:
             return state;
     }
