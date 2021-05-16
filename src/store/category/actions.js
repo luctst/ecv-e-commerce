@@ -18,12 +18,17 @@ export function addNewCategory (newCategory) {
     }
 }
 
-export function deleteCategory (categoryId) {
-    return {
-        type: actionsTypes.category.DELETE_CATEGORY,
-        data: categoryId
+export const deleteCategoryById = id => async dispatch => {
+    try {
+        await api.delete(`/categories/${id}`);
+        dispatch({
+            type: actionsTypes.category.DELETE_CATEGORY,
+            data: id
+        })
+    } catch(e) {
+        console.error(e);
     }
-}
+};
 
 export function updateCategory (categoryId, newCategoryData) {
     return {

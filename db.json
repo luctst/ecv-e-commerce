@@ -203,6 +203,30 @@
       "firstname": "th",
       "lastname": "yj",
       "id": 5
+    },
+    {
+      "email": "hiloyilo@gmail.com",
+      "password": "$2a$10$9F92PPZP7KpMIOSjpL2jjO4i2CuPMcW3nJEEn5cVzKONoiSHMk9/6",
+      "avatar": "rty",
+      "firstname": "tjfyuk",
+      "lastname": "ugiluil",
+      "id": 6
+    },
+    {
+      "email": "tttfyk@gmail.com",
+      "password": "$2a$10$TTHFTq7HhWQEVIQqov7QG.leNh0gCjCttDpFHqeDV53DQisOrNxiS",
+      "avatar": "rh",
+      "firstname": "h",
+      "lastname": "yh",
+      "id": 7
+    },
+    {
+      "email": "ykugil@gmail.com",
+      "password": "$2a$10$BBW6oyupUoRVokaPpCjyteCbJhO5LTKkn1fsC4TTVL0Xfjm6jW07W",
+      "avatar": "rghh",
+      "firstname": "tdj",
+      "lastname": "yu",
+      "id": 8
     }
   ]
 }

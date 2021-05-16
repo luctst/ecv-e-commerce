@@ -1,10 +1,12 @@
-import { connect } from 'react-redux';
 import './style.scss';
 import Upload from "../../Upload";
 import Input from "../../Input";
 import Button from "../../Button";
+import { useSelector } from 'react-redux'
+import { getCurrentUser } from "../../../store/users/selectors";
 
-function Informations({ user }) {
+function UserForm() {
+    const user = useSelector(getCurrentUser);
     return (
         <section className="account-informations">
             {user &&
@@ -21,10 +23,4 @@ function Informations({ user }) {
     );
 }
 
-function mapStateToProps (state) {
-    return {
-        user: state.users.connected
-    }
-}
-
-export default connect(mapStateToProps)(Informations);
+export default UserForm;

@@ -1,35 +1,27 @@
-import { connect } from 'react-redux';
 import './style.scss';
-import Informations from "../Informations";
-import LinkButton from "../../LinkButton";
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
-import api from '../../../api/index';
-import { deleteCategory } from '../../../store/category/actions';
-import { deleteArticle } from '../../../store/articles/actions';
+import { deleteCategoryById } from '../../../store/category/actions';
+import { deleteArticleById } from '../../../store/articles/actions';
+import { getUserCategories } from "../../../store/category/selectors";
+import { getUserArticles } from "../../../store/articles/selectors";
+import UserForm from "../UserForm";
+import LinkButton from "../../LinkButton";
 
-function AccountDetails({ articles, categories, delCategory, delArticle }) {
-    async function deleteCategory (categoryId) {
-        try {
-            await api.delete(`/600/categories/${categoryId}`);
-            delCategory(categoryId);
-        } catch (error) {
-            throw error;
-        }
-    }
+function AccountDetails() {
 
-    async function deleteArticle (articleId) {
-        try {
-            await delArticle(articleId);
-        } catch (error) {
-            throw error;
-        }
-    }
+    const dispatch = useDispatch();
+    const categories = useSelector(getUserCategories);
+    const articles = useSelector(getUserArticles);
+
+    const deleteCategory = id => dispatch(deleteCategoryById(id));
+    const deleteArticle = id => dispatch(deleteArticleById(id));
 
     return (
         <div className="page-account">
             <h1>Mon compte</h1>
             <div className="account-details">
-                <Informations/>
+                <UserForm/>
                 <div>
                     <h2>Mes catégories</h2>
                     <p>Vous n'avez pas encore créé de catégories</p>
@@ -74,7 +66,6 @@ function AccountDetails({ articles, categories, delCategory, delArticle }) {
                                     <div>
                                         <Link to={`/article/modifier/${article.id}`} className="modify">Modifier</Link>
                                         <button className="delete" onClick={() => deleteArticle(article.id)}>Supprimer</button>
-                                        {/* <Link to="/" className="delete">Supprimer</Link> */}
                                     </div>
                                 </td>
                             </tr>
@@ -86,17 +77,4 @@ function AccountDetails({ articles, categories, delCategory, delArticle }) {
     );
 }
 
-function mapStateToProps (state) {
-    return {
-        articles: state.articles.filter(article => article.userId === state.users.connected.userId),
-        categories: state.category.filter(categori => categori.userId === state.users.connected.userId),
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    {
-        delCategory: deleteCategory,
-        delArticle: deleteArticle
-    }
-)(AccountDetails);
+export default AccountDetails;

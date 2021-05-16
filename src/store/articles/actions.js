@@ -11,12 +11,14 @@ export function fetchAllArticles() {
     }
 }
 
-export function deleteArticle (articleId) {
-    return async function (dispatch) {
-        await api.delete(`/600/articles/${articleId}`);
-        return dispatch({
+export const deleteArticleById = id => async dispatch => {
+    try {
+        await api.delete(`/articles/${id}`);
+        dispatch({
             type: actionsTypes.articles.DELETE_ARTICLE_BY_ID,
-            data: articleId
+            data: id
         })
+    } catch(e) {
+        console.error(e);
     }
-}
+};
