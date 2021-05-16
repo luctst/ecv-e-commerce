@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import './style.scss';
 import Informations from "../Informations";
 import LinkButton from "../../LinkButton";
@@ -92,7 +91,7 @@ function mapStateToProps (state) {
         articles: state.articles.filter(article => article.userId === state.users.connected.userId),
         categories: state.category.filter(categori => categori.userId === state.users.connected.userId),
     }
-};
+}
 
 export default connect(
     mapStateToProps,

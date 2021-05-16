@@ -1,22 +1,26 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from  'react-router-dom';
-
+import { useHistory } from 'react-router-dom'
 import './style.scss';
 import Button from "../../Button";
 import Upload from "../../Upload";
 import api from '../../../api';
 import { populateUser } from '../../../store/users/actions';
+import Input from "../../Input";
 
 function RegisterForm({ populateUser }) {
+
+    const history = useHistory();
     const [formData] = useState([
-        { type: 'text', required: true, label: 'Nom', ref: 'surName'},
-        { type: 'text', required: true, label: 'Prénom', ref: 'name'},
+        { type: 'file', required: true, label: 'Url de votre photo de profil', ref: 'avatar'},
+        { type: 'text', required: true, label: 'Prénom', ref: 'firstname'},
+        { type: 'text', required: true, label: 'Nom', ref: 'lastname'},
         { type: 'email', required: true, label: 'Email', ref: 'email'},
         { type: 'password', required: true, label: 'Mot de passe', ref: 'password'}
     ]);
     const [postNewUser, setPostNewUser] = useState({});
-    const [redirect, setRedirect] = useState(false);
+    const [redirect] = useState(false);
 
     function updateDataToPost(value, inputData) {
         const newUser = { ...postNewUser };
@@ -42,7 +46,8 @@ function RegisterForm({ populateUser }) {
                 cpNewUser.password = undefined;
 
                 populateUser(cpNewUser);
-                setRedirect(true);
+                console.log(cpNewUser);
+                history.push('/mon-compte')
             }
         } catch (error) {
             throw error;
@@ -57,15 +62,17 @@ function RegisterForm({ populateUser }) {
         <section className="login-form">
             <form onSubmit={postUser}>
                 <h1>Inscription</h1>
-                <Upload>Url de votre photo de profil</Upload>
                 {
                     formData.map(function (data, index) {
-                        return (
-                            <label key={index}>
-                                <span>{data.label}</span>
-                                <input type={data.type} required={data.required} onChange={e => updateDataToPost(e.target.value, data)}/>
-                            </label>
-                        )
+                        if (data.type === 'file') {
+                            return (
+                                <Upload key={index} required={data.required} onChange={value => updateDataToPost(value, data)}>{data.label}</Upload>
+                            )
+                        } else {
+                            return (
+                                <Input key={index} type={data.type} required={data.required} onChange={value => updateDataToPost(value, data)}>{data.label}</Input>
+                            )
+                        }
                     })
                 }
                 <Button type="submit">Valider</Button>

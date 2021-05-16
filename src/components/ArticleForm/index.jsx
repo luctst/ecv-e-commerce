@@ -7,6 +7,7 @@ import CategoriesRadio from "../CategoriesRadio";
 import LinkButton from "../LinkButton";
 
 function ArticleForm(props) {
+
     return (
         <form className="article-form">
             <h1>{props.pageTitle}</h1>

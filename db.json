@@ -166,31 +166,43 @@
   "users": [
     {
       "email": "maeva.pasteur@gmail.com",
+      "avatar": "https://www.moderatecontent.com/img/sample_face_3.jpg",
       "password": "$2a$10$W0IqFYQ03RERco36LQOXEOQPeNjfC79RTugYQILmFrxIx2uTFXCey",
-      "surName": "Pasteur",
-      "name": "Maéva",
+      "firstname": "Pasteur",
+      "lastname": "Maéva",
       "id": 1
     },
     {
       "email": "sarah@gmail.com",
+      "avatar": "https://www.moderatecontent.com/img/sample_face_3.jpg",
       "password": "$2a$10$DmiTdu/O1IgIriWd22zQM.Z66YDNbxOLyqdhc4Jp7ExkLXKMz3PLa",
-      "surName": "Loumia",
-      "name": "Sarah",
+      "firstname": "Loumia",
+      "lastname": "Sarah",
       "id": 2
     },
     {
       "email": "lucas.tostee@gmail.Com",
+      "avatar": "https://www.moderatecontent.com/img/sample_face_3.jpg",
       "password": "$2a$10$D1nDghuikWloN9CJAUAu9.JrXN.qIjwNPQ1FW3cfOK6BqJldPdvF6",
-      "surName": "Tostee",
-      "name": "Lucas",
+      "firstname": "Tostee",
+      "lastname": "Lucas",
       "id": 3
     },
     {
       "email": "julie@gmail.com",
+      "avatar": "https://www.moderatecontent.com/img/sample_face_3.jpg",
       "password": "$2a$10$UpblH.UgFGMOhPRx8N5wTeU2j8cDKEBj38BhYrYtI0W.LMk5fkW8i",
-      "surName": "Lola",
-      "name": "Julie",
+      "firstname": "Lola",
+      "lastname": "Julie",
       "id": 4
+    },
+    {
+      "email": "kuiut@gmail.com",
+      "password": "$2a$10$MSnaS/Za6DspI0I0UDui2OnJVD.NVn1lLsrX3oFy58WufaKBa0d4u",
+      "avatar": "rtzh",
+      "firstname": "th",
+      "lastname": "yj",
+      "id": 5
     }
   ]
 }

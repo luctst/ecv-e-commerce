@@ -1,40 +1,31 @@
 import './style.scss';
-import React from 'react';
+import React, { useState } from 'react';
 const avatar = 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png';
 
-class Upload extends React.Component {
+function Upload({ children, image, required, onChange}) {
 
-    constructor(props){
-        super(props);
-        this.inputValue = props.image ? props.image : '';
-        this.state = {
-            file: props.image ? props.image : avatar
-        };
-        this.handleChange = this.handleChange.bind(this)
-    }
+    const [file, setFile] = useState(image ? image : avatar);
 
-    handleChange(event) {
+    function handleChange(event) {
         let src = event.target.value;
-        if(!src || src === '') {
-            src = avatar
+        src = !src || src === '' ? avatar : src;
+        setFile(src);
+        if(onChange) {
+            onChange(src)
         }
-        this.setState({
-            file: src
-        });
     }
 
-    render() {
-        return (
-            <div className="upload">
-                <div className="avatar">
-                    <img src={this.state.file} alt="Avatar"/>
-                </div>
-                <label>
-                    <span>{this.props.children}</span>
-                    <input defaultValue={this.inputValue} type="text" onChange={this.handleChange}/>
-                </label>
+    return (
+        <div className="upload">
+            <div className="avatar">
+                <img src={file} alt="Avatar"/>
             </div>
-        );
-    }
+            <label>
+                <span>{children}</span>
+                <input required={required} defaultValue={image ? image : ''} type="text" onChange={e => handleChange(e)}/>
+            </label>
+        </div>
+    )
 }
+
 export default Upload;
