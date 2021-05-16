@@ -13,7 +13,7 @@ export function fetchAllCategory() {
 
 export function addNewCategory (newCategory) {
     return {
-        type: actionsTypes.category.ADD_NEW_CATEGORY,
+        type: actionsTypes.category.ADD_CATEGORY,
         data: newCategory
     }
 }
@@ -32,10 +32,10 @@ export const deleteCategoryById = id => async dispatch => {
 
 export const updateCategory = category => async dispatch => new Promise(((resolve, reject) => {
     api.patch(`/categories/${category.id}`, category)
-        .then(() => {
+        .then(res => {
             dispatch({
-                type: actionsTypes.category.UPDATE_CATEGORY_BY_ID,
-                data: category
+                type: actionsTypes.category.UPDATE_CATEGORY,
+                data: res.data
             });
             resolve()
         })
@@ -49,7 +49,7 @@ export const addCategory = category => async dispatch => new Promise(((resolve, 
     api.post(`/categories`, category)
         .then(() => {
             dispatch({
-                type: actionsTypes.category.ADD_NEW_CATEGORY,
+                type: actionsTypes.category.ADD_CATEGORY,
                 data: category
             });
             resolve()

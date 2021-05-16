@@ -1,30 +1,22 @@
 import ArticleForm from "../components/ArticleForm";
+import { useSelector } from "react-redux";
+import { getUserArticle } from "../store/articles/selectors";
 
-const article = {
-    id: 1,
-    title: "Chemise à fleur",
-    brand: "Levi's",
-    price: "79.00",
-    image: "https://medias-cache.citadium.com/fr/levis-chemise-bleu/image/35/8/3025358.426.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
-    category: 'chemise'
-};
-
-function ArticleEdit() {
-    return (
-        <div>
-            <ArticleForm
-                pageTitle="Modifier l'article"
-                title={article.title}
-                description={article.description}
-                brand={article.brand}
-                price={article.price}
-                image={article.image}
-                category={article.category}
-                button="Modifier"
-            />
-        </div>
-    )
+function ArticleEdit(props) {
+    const article = useSelector(state => getUserArticle(state, props.match.params.id));
+    if (article) {
+        return (
+            <div>
+                <ArticleForm
+                    title="Modifier l'article"
+                    data={article}
+                    button="Modifier"
+                />
+            </div>
+        )
+    } else {
+        return <p>Vous n'avez pas le droit de modifier cet article</p>
+    }
 }
 
 export default ArticleEdit;

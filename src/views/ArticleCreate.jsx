@@ -4,7 +4,7 @@ function ArticleCreate() {
     return (
         <div>
             <ArticleForm
-                pageTitle="Créer un article"
+                title="Créer un article"
                 button="Ajouter"
             />
         </div>
