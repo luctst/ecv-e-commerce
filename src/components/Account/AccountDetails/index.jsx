@@ -6,12 +6,21 @@ import LinkButton from "../../LinkButton";
 import { Link } from "react-router-dom";
 import api from '../../../api/index';
 import { deleteCategory } from '../../../store/category/actions';
+import { deleteArticle } from '../../../store/articles/actions';
 
-function AccountDetails({ articles, categories, deleteCategory }) {
+function AccountDetails({ articles, categories, delCategory, delArticle }) {
     async function deleteCategory (categoryId) {
         try {
             await api.delete(`/600/categories/${categoryId}`);
-            deleteCategory(categoryId);
+            delCategory(categoryId);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async function deleteArticle (articleId) {
+        try {
+            await delArticle(articleId);
         } catch (error) {
             throw error;
         }
@@ -65,7 +74,8 @@ function AccountDetails({ articles, categories, deleteCategory }) {
                                 <td>
                                     <div>
                                         <Link to={`/article/modifier/${article.id}`} className="modify">Modifier</Link>
-                                        <Link to="/" className="delete">Supprimer</Link>
+                                        <button className="delete" onClick={() => deleteArticle(article.id)}>Supprimer</button>
+                                        {/* <Link to="/" className="delete">Supprimer</Link> */}
                                     </div>
                                 </td>
                             </tr>
@@ -86,5 +96,8 @@ function mapStateToProps (state) {
 
 export default connect(
     mapStateToProps,
-    { deleteCategory }
+    {
+        delCategory: deleteCategory,
+        delArticle: deleteArticle
+    }
 )(AccountDetails);

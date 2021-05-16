@@ -1,6 +1,7 @@
 const actionsTypes = {
     articles: {
-        GET_ALL_ARTICLES: 'GET_ALL_ARTICLES'
+        GET_ALL_ARTICLES: 'GET_ALL_ARTICLES',
+        DELETE_ARTICLE_BY_ID: 'DELETE_ARTICLE_BY_ID'
     },
     category: {
         GET_ALL_CATEGORIES: 'GET_ALL_CATEGORIES',

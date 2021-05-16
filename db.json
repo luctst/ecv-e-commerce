@@ -25,18 +25,6 @@
       "userId": 2
     },
     {
-      "id": 3,
-      "handle": "coupe-vent-impermeable-avec-capuche-olive",
-      "title": "Coupe-vent imperméable avec capuche olive",
-      "brand": "Rains",
-      "price": "95.00",
-      "image": "https://medias-cache.citadium.com/fr/rains-coupe-vent-impermeable-avec-capuche-vert/image/98/6/2992986.129.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
-      "inHomePage": true,
-      "categoryId": 2,
-      "userId": 3
-    },
-    {
       "id": 4,
       "handle": "sac-a-bandouliere-nightout",
       "title": "Sac à bandoulière nightoutr",
@@ -60,17 +48,6 @@
       "userId": 2
     },
     {
-      "id": 6,
-      "handle": "tee-shirt-col-rond-regular-fit",
-      "title": "Tee-shirt col rond regular-fit",
-      "brand": "Tealer",
-      "price": "35.00",
-      "image": "https://medias-cache.citadium.com/fr/tealer-tee-shirt-col-rond-regular-fit-serigraphie-en-coton-blanc/image/74/0/3063740.129.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
-      "categoryId": 9,
-      "userId": 3
-    },
-    {
       "id": 7,
       "handle": "aop-milano-mini-skirt-jupe",
       "title": "AOP Milano mini skirt jupe",
@@ -91,17 +68,6 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "categoryId": 4,
       "userId": 2
-    },
-    {
-      "id": 9,
-      "handle": "dress-mazzy-robe",
-      "title": "Dress mazzy robe",
-      "brand": "Wasted",
-      "price": "70.00",
-      "image": "https://medias-cache.citadium.com/fr/wasted-robe-noir/image/21/6/3011216.426.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
-      "categoryId": 4,
-      "userId": 3
     },
     {
       "id": 10,
@@ -185,12 +151,6 @@
       "id": 9,
       "handle": "tee-shirt",
       "userId": 3
-    },
-    {
-      "userId": 3,
-      "name": "jogging",
-      "handle": "jogging",
-      "id": 10
     }
   ],
   "users": [

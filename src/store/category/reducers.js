@@ -8,10 +8,14 @@ function categoryReducers(state = [], action) {
             state.push(action.data);
             return state;
         case actionsTypes.category.DELETE_CATEGORY:
-            return state.splice(
+            const newState = [ ...state ];
+
+            newState.splice(
                 state.findIndex(cat => cat.id === action.data),
                 1
             );
+
+            return newState;
         case actionsTypes.category.UPDATE_CATEGORY_BY_ID:
             state[action.data.categoryId] = action.data.newCategoryData;
             return state;

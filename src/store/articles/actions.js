@@ -10,3 +10,13 @@ export function fetchAllArticles() {
         })
     }
 }
+
+export function deleteArticle (articleId) {
+    return async function (dispatch) {
+        await api.delete(`/600/articles/${articleId}`);
+        return dispatch({
+            type: actionsTypes.articles.DELETE_ARTICLE_BY_ID,
+            data: articleId
+        })
+    }
+}
