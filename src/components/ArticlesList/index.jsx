@@ -25,7 +25,7 @@ function ArticlesList({ articles, categories , location }) {
                 <h1>Nos articles</h1>
                 {categories && categories.length &&
                     <form>
-                        <CategoriesRadio selected={filter} onChange={handleChange}/>
+                        <CategoriesRadio key={filter} selected={filter} onChange={handleChange}/>
                     </form>
                 }
             </div>

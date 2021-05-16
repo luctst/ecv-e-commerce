@@ -8,7 +8,7 @@ function CategoriesRadio({ children, categories, onChange, selected = 0 }) {
         <div className="categories-radio">
             {categories.map((category, index) => {
                 return <label key={`category-${index}`}>
-                    <input defaultChecked={selected} type="radio" value={category.id} name="category" onChange={() => onChange(category.id)}/>
+                    <input defaultChecked={selected === category.id} type="radio" value={category.id} name="category" onChange={() => onChange(category.id)}/>
                     <span>{category.name}</span>
                 </label>
             })}

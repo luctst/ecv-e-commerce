@@ -7,29 +7,36 @@ import LinkButton from "../LinkButton";
 function ArticleDetails({ article }) {
     return (
         <section className="article-details">
-            <LazyImage src={article.image} alt={article.title}/>
-            <div>
-                <LinkButton routeData={{ pathname: '/articles', state: { categoryId: article.categoryId}}}>{article.category.name}</LinkButton>
-                <p className="brand">{article.brand}</p>
-                <h1>{article.title}</h1>
-                <p className="price">{article.price}€</p>
-                <p>{article.description}</p>
-            </div>
+            {article &&
+                <div>
+                    <LazyImage key={article.image} src={article.image} alt={article.title}/>
+                    <div>
+                        {article.category &&
+                        <LinkButton routeData={{ pathname: '/articles', state: { categoryId: article.categoryId}}}>{article.category.name}</LinkButton>
+                        }
+                        <p className="brand">{article.brand}</p>
+                        <h1>{article.title}</h1>
+                        <p className="price">{article.price}€</p>
+                        <p>{article.description}</p>
+                    </div>
+                </div>
+            }
         </section>
     )
 }
 
 function mapStateToProps (state, ownProps) {
-    const article = state.articles.find(article => article.id === parseInt(ownProps.articleId))
-    const category = state.category.find(cat => cat.id === article.categoryId);
+
+    const article = state.articles.find(article => article.id === parseInt(ownProps.articleId));
+    const category = article ? state.category.find(cat => cat.id === article.categoryId) : null;
 
     return {
         article: {
             ...article,
-            category: {
+            category: category ? {
                 handle: category.handle,
                 name: category.name
-            }
+            } : null
         }
     }
 }

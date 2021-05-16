@@ -11,10 +11,8 @@ import ScrollToTop from './components/ScrollToTop';
 import routes from './routes';
 
 function checkToken(Component, mustCheckToken, redirectPath, propsFromRoute) {
-    if (mustCheckToken && localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />;
-    if (!mustCheckToken && !localStorage.getItem('accessToken')) return <Component {...propsFromRoute} />;
-
-    return <Redirect to={redirectPath}/>
+    const token = localStorage.getItem('accessToken');
+    return (mustCheckToken && token) || (!mustCheckToken && !token) ? <Component {...propsFromRoute} /> : <Redirect to={redirectPath}/>
 }
 
 function App() {

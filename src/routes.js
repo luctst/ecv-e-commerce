@@ -19,8 +19,8 @@ function createCheckRoute (checkToken, pathToRedirect) {
 
 const routes = [
     { path: '/', name: 'Home', Component: Home },
-    { path: '/inscription', name: 'Register', Component: Register },
-    { path: '/connexion', name: 'Login', Component: Login, checkRoute: createCheckRoute(false, '/') },
+    { path: '/inscription', name: 'Register', Component: Register, checkRoute: createCheckRoute(false, '/mon-compte') },
+    { path: '/connexion', name: 'Login', Component: Login, checkRoute: createCheckRoute(false, '/mon-compte') },
     { path: '/mon-compte', name: 'Account', Component: Account, checkRoute: createCheckRoute(true, '/connexion') },
     { path: '/recherche/:terms', name: 'SearchResults', Component: SearchResults },
     { path: '/articles', name: 'Articles', Component: Articles },

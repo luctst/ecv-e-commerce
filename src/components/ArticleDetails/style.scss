@@ -1,9 +1,18 @@
 .article-details {
-  display: flex;
-  position: relative;
   margin-bottom: 30px;
   min-height: calc(100vh - 90px - 30px);
-  align-items: flex-start;
+
+  & > div {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+
+    & > div {
+      position: sticky;
+      top: 90px;
+      padding-left: 30px;
+    }
+  }
 
   .img {
     height: calc(100vh - 90px - 30px);
@@ -13,12 +22,6 @@
     padding-bottom: 0;
     flex-shrink: 0;
     min-width: 500px;
-  }
-
-  & > div {
-    position: sticky;
-    top: 90px;
-    padding-left: 30px;
   }
 
   .brand {
