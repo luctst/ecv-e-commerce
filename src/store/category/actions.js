@@ -47,10 +47,10 @@ export const updateCategory = category => async dispatch => new Promise(((resolv
 
 export const addCategory = category => async dispatch => new Promise(((resolve, reject) => {
     api.post(`/categories`, category)
-        .then(() => {
+        .then(res => {
             dispatch({
                 type: actionsTypes.category.ADD_CATEGORY,
-                data: category
+                data: res.data
             });
             resolve()
         })

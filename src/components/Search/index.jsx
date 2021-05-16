@@ -18,7 +18,7 @@ function Search({ all_articles }) {
            {articles.length && (
                <div>
                    <p>[{articles.length}] résultats</p>
-                   <List articles={articles} filter={0}/>
+                   <List articles={articles}/>
                </div>
            )}
        </div>

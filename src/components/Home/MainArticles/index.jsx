@@ -8,7 +8,7 @@ function Categories() {
     return (
         <section className="main-articles">
             {articles && articles.length &&
-                <List articles={articles.slice(0, 4)} filter={0}/>
+                <List articles={articles.slice(0, 4)}/>
             }
         </section>
     );

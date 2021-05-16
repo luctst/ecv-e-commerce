@@ -90,36 +90,6 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "categoryId": 6,
       "userId": 2
-    },
-    {
-      "userId": 2,
-      "image": "rth",
-      "title": "gr",
-      "description": "dtn",
-      "brand": "rsb",
-      "price": "12",
-      "categoryId": 0,
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "image": "erg",
-      "title": "v",
-      "description": "tdn",
-      "brand": "dnt",
-      "price": "22",
-      "categoryId": 0,
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "image": "juu",
-      "title": "eb",
-      "description": "srb",
-      "brand": "efv",
-      "price": "12",
-      "categoryId": 0,
-      "id": 14
     }
   ],
   "categories": [
@@ -200,9 +170,10 @@
       "id": 10
     },
     {
-      "image": "",
-      "name": "jogging",
-      "handle": "jogging",
+      "userId": 2,
+      "image": "rth",
+      "name": "rtg",
+      "handle": "rtg",
       "id": 11
     }
   ],
