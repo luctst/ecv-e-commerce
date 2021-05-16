@@ -10,7 +10,8 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "inHomePage": true,
       "categoryId": 3,
-      "userId": 1
+      "userId": 1,
+      "created": "20/01/2021"
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "inHomePage": true,
       "categoryId": 8,
-      "userId": 2
+      "userId": 2,
+      "created": "20/01/2021"
     },
     {
       "id": 4,
@@ -34,7 +36,8 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "inHomePage": true,
       "categoryId": 5,
-      "userId": 1
+      "userId": 1,
+      "created": "20/01/2021"
     },
     {
       "id": 5,
@@ -45,7 +48,8 @@
       "image": "https://medias-cache.citadium.com/fr/dr-martens-dr-martens-en-cuir-noir/image/97/1/2919971.129.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "categoryId": 6,
-      "userId": 2
+      "userId": 2,
+      "created": "20/01/2021"
     },
     {
       "id": 7,
@@ -56,7 +60,8 @@
       "image": "https://medias-cache.citadium.com/fr/calvin-klein-jeans-jupe-blanc/image/46/9/2899469.426.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "categoryId": 1,
-      "userId": 1
+      "userId": 1,
+      "created": "20/01/2021"
     },
     {
       "id": 8,
@@ -67,7 +72,8 @@
       "image": "https://medias-cache.citadium.com/fr/tommy-jeans-robe-rouge/image/38/7/2965387.426.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "categoryId": 4,
-      "userId": 2
+      "userId": 2,
+      "created": "20/01/2021"
     },
     {
       "id": 10,
@@ -78,7 +84,8 @@
       "image": "https://medias-cache.citadium.com/fr/veja-campo-chromefree-jaune/image/56/5/3063565.426.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "categoryId": 6,
-      "userId": 1
+      "userId": 1,
+      "created": "20/01/2021"
     },
     {
       "id": 11,
@@ -89,7 +96,8 @@
       "image": "https://medias-cache.citadium.com/image/97/8/3066978.426.jpg",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci asperiores beatae dignissimos distinctio facere magni mollitia nulla officiis.",
       "categoryId": 6,
-      "userId": 2
+      "userId": 2,
+      "created": "20/01/2021"
     }
   ],
   "categories": [
@@ -168,13 +176,6 @@
       "name": "Lunettes de soleil",
       "handle": "lunettes-de-soleil",
       "id": 10
-    },
-    {
-      "userId": 2,
-      "image": "rth",
-      "name": "rtg",
-      "handle": "rtg",
-      "id": 11
     }
   ],
   "users": [
@@ -184,7 +185,8 @@
       "password": "$2a$10$W0IqFYQ03RERco36LQOXEOQPeNjfC79RTugYQILmFrxIx2uTFXCey",
       "firstname": "Pasteur",
       "lastname": "Maéva",
-      "id": 1
+      "id": 1,
+      "role": "admin"
     },
     {
       "email": "sarah@gmail.com",
@@ -192,7 +194,8 @@
       "password": "$2a$10$DmiTdu/O1IgIriWd22zQM.Z66YDNbxOLyqdhc4Jp7ExkLXKMz3PLa",
       "firstname": "Loumia",
       "lastname": "Sarah",
-      "id": 2
+      "id": 2,
+      "role": "admin"
     },
     {
       "email": "lucas.tostee@gmail.Com",
@@ -200,7 +203,8 @@
       "password": "$2a$10$D1nDghuikWloN9CJAUAu9.JrXN.qIjwNPQ1FW3cfOK6BqJldPdvF6",
       "firstname": "Tostee",
       "lastname": "Lucas",
-      "id": 3
+      "id": 3,
+      "role": "admin"
     },
     {
       "email": "julie@gmail.com",
@@ -208,7 +212,8 @@
       "password": "$2a$10$UpblH.UgFGMOhPRx8N5wTeU2j8cDKEBj38BhYrYtI0W.LMk5fkW8i",
       "firstname": "Lola",
       "lastname": "Julie",
-      "id": 4
+      "id": 4,
+      "role": "admin"
     },
     {
       "email": "kuiut@gmail.com",
@@ -216,7 +221,8 @@
       "avatar": "rtzh",
       "firstname": "th",
       "lastname": "yj",
-      "id": 5
+      "id": 5,
+      "role": "admin"
     },
     {
       "email": "hiloyilo@gmail.com",
@@ -224,7 +230,8 @@
       "avatar": "rty",
       "firstname": "tjfyuk",
       "lastname": "ugiluil",
-      "id": 6
+      "id": 6,
+      "role": "admin"
     },
     {
       "email": "tttfyk@gmail.com",
@@ -232,7 +239,8 @@
       "avatar": "rh",
       "firstname": "h",
       "lastname": "yh",
-      "id": 7
+      "id": 7,
+      "role": "admin"
     },
     {
       "email": "ykugil@gmail.com",
@@ -240,7 +248,8 @@
       "avatar": "rghh",
       "firstname": "tdj",
       "lastname": "yu",
-      "id": 8
+      "id": 8,
+      "role": "admin"
     },
     {
       "email": "yfkuykuk@gmail.com",
@@ -248,7 +257,8 @@
       "avatar": "rqstg",
       "firstname": "dthj",
       "lastname": "yfjk",
-      "id": 9
+      "id": 9,
+      "role": "admin"
     },
     {
       "email": "guigulgiu@gmail.com",
@@ -256,7 +266,8 @@
       "avatar": "zrtgh",
       "firstname": "dty",
       "lastname": "jyfyfjkfuyk",
-      "id": 10
+      "id": 10,
+      "role": "admin"
     }
   ]
 }

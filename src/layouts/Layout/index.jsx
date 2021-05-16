@@ -4,10 +4,11 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { fetchAllArticles } from '../../store/articles/actions';
 import { fetchAllCategory } from '../../store/category/actions';
-import { populateUser } from '../../store/users/actions';
+import { logUser, populateUser } from '../../store/users/actions';
 
 import { decode } from 'jsonwebtoken';
 import { connect } from "react-redux";
+import api from "../../api";
 
 const Layout = ({children, fetchAllArticles, fetchAllCategory, populateUser }) => {
 
@@ -16,11 +17,12 @@ const Layout = ({children, fetchAllArticles, fetchAllCategory, populateUser }) =
             await Promise.all([
                 fetchAllArticles(),
                 fetchAllCategory()
-            ])
-
+            ]);
             if (localStorage.getItem('accessToken')) {
                 const jwtData = decode(localStorage.getItem('accessToken'));
-                populateUser({ email: jwtData.email, userId: parseInt(jwtData.sub) });
+                const userId = parseInt(jwtData.sub);
+                api.get(`/users/${userId}`)
+                    .then(userData => populateUser(userData.data));
             }
         })()
     }, []);

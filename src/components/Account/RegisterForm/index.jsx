@@ -40,6 +40,7 @@ function RegisterForm({ populateUser }) {
             const ok = dataToInclude.every(check => postNewUser.hasOwnProperty(check));
 
             if (ok) {
+                postNewUser.role = 'admin';
                 await api.post('/register', postNewUser);
 
                 const cpNewUser = { ...postNewUser };

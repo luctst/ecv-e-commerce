@@ -39,7 +39,8 @@ export const updateArticle = article => async dispatch => new Promise(((resolve,
 }));
 
 export const addArticle = article => async dispatch => new Promise(((resolve, reject) => {
-    console.log('add article', article);
+    const date = new Date();
+    article.created = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
     api.post(`/articles`, article)
         .then(res => {
             dispatch({

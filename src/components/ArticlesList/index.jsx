@@ -2,7 +2,7 @@ import './style.scss';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import { getCategories } from "../../store/category/selectors";
-import { getArticles, getArticlesByCategory } from "../../store/articles/selectors";
+import { getArticles } from "../../store/articles/selectors";
 import CategoriesRadio from "../CategoriesRadio";
 import List from "../List";
 
