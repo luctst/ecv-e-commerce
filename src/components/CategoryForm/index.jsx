@@ -1,81 +1,75 @@
-import { connect } from 'react-redux';
-import { useState } from 'react';
-import { Redirect } from 'react-router';
-
 import './style.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
+import { getCurrentUser } from '../../store/users/selectors';
+import { updateCategory, addCategory } from "../../store/category/actions";
 import Button from '../Button';
-import Upload from "../Upload";
-import api from '../../api/index';
-import { addNewCategory, updateCategory } from '../../store/category/actions';
+import Upload from '../Upload';
+import Input from "../Input";
 
-function CategoryForm({ userData, title, image, button, addNewCategory, updateCategory, match }) {
-    const [newCategory, setNewCategory] = useState({
-        userId: userData.userId
+function CategoryForm({ title, data, button }) {
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const categoryExist = data;
+    const user = useSelector(getCurrentUser);
+    const [error, setError] = useState(false);
+    const [category, setCategory] = useState(
+        data ? data : {
+        userId: user.id,
+        image: '',
+        name: '',
+        handle: ''
     });
-    const [redirect, setRedirect] = useState(false);
 
-    function updateNewCategory (e) {
-        const cpNewCategory = { ...newCategory };
-        const valueTrim = e.target.value.trim().toLowerCase();
+    const handleNameChange = value => {
+        setError(false);
+        const handle = value.toLowerCase().trim().replaceAll(' ', '-');
+        setCategory({
+            ...category,
+            name: value,
+            handle: handle
+        })
+    };
 
-        cpNewCategory.name = e.target.value;
+    const handleImageChange = value => {
+        setError(false);
+        setCategory({
+            ...category,
+            image: value
+        })
+    };
 
-        if (valueTrim.includes(' ')) {
-            const stringSplit = valueTrim.split(' ').join('-');
+    const submit = e => {
 
-            cpNewCategory.handle = stringSplit;
-            return setNewCategory(cpNewCategory);
+        e.preventDefault();
+
+        if (categoryExist) {
+            dispatch(updateCategory(category))
+                .then(() => history.push('/mon-compte'))
+                .catch(() => setError(true))
+
+        } else {
+            dispatch(addCategory(category))
+                .then(() => history.push('/mon-compte'))
+                .catch(() => setError(true))
         }
-
-        cpNewCategory.handle = valueTrim;
-        return setNewCategory(cpNewCategory);
-    }
-
-    async function postNewCategory (e) {
-        try {
-            e.preventDefault();
-
-            if (match) {
-                const { data } = await api.patch(`/600/categories/${match.params.id}`, newCategory);
-                updateCategory(match.params.id, data);
-                return setRedirect(true);
-            }
-
-
-            const { data } = await api.post('/categories', newCategory);
-            addNewCategory(data);
-            setRedirect(true);
-        } catch (error) {
-            throw error;
-        }
-    }
-
-    if (redirect) {
-        return <Redirect to="/mon-compte"/>
-    }
+    };
 
     return (
         <div className="categories-form">
             <h1>{title}</h1>
-            <form onSubmit={postNewCategory}>
-                <label>
-                    <span>Nom de la catégorie</span>
-                    <input type="text" required="required" onChange={updateNewCategory}/>
-                </label>
-                <Upload image={image}>Photo de la catégorie</Upload>
+            {error &&
+                <p className="error">Aie, une erreur est survenue...</p>
+            }
+            <form onSubmit={submit}>
+                <Input type="text" required={true} value={category.name} onChange={e => handleNameChange(e)}>Nom de la catégorie</Input>
+                <Upload image={category.image} onChange={e => handleImageChange(e)}>Photo de la catégorie</Upload>
                 <Button type="submit">{button}</Button>
             </form>
         </div>
     )
 }
 
-function mapStateToProps (state) {
-    return {
-        userData: state.users.connected
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    { addNewCategory, updateCategory}
-)(CategoryForm);
+export default CategoryForm;

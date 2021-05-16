@@ -17,7 +17,7 @@ function categoryReducers(state = [], action) {
 
             return newState;
         case actionsTypes.category.UPDATE_CATEGORY_BY_ID:
-            state[action.data.categoryId] = action.data.newCategoryData;
+            state[action.data.id] = action.data;
             return state;
         default:
             return state;

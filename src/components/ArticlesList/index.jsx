@@ -1,10 +1,15 @@
-import { connect } from 'react-redux';
 import './style.scss';
+import { useSelector } from 'react-redux';
+import { useState, useEffect } from "react";
+import { getCategories } from "../../store/category/selectors";
+import { getArticles } from "../../store/articles/selectors";
 import CategoriesRadio from "../CategoriesRadio";
 import List from "../List";
-import { useState, useEffect } from "react";
 
-function ArticlesList({ articles, categories , location }) {
+function ArticlesList({ location }) {
+
+    const categories = useSelector(getCategories);
+    const articles = useSelector(getArticles);
     const [filter, setFilter] = useState(0);
 
     useEffect(function () {
@@ -36,11 +41,4 @@ function ArticlesList({ articles, categories , location }) {
     );
 }
 
-function mapStateToProps (state) {
-    return {
-        articles: state.articles,
-        categories: state.category
-    }
-}
-
-export default connect(mapStateToProps)(ArticlesList);
+export default ArticlesList;

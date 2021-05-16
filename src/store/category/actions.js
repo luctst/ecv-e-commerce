@@ -30,12 +30,32 @@ export const deleteCategoryById = id => async dispatch => {
     }
 };
 
-export function updateCategory (categoryId, newCategoryData) {
-    return {
-        type: actionsTypes.category.UPDATE_CATEGORY_BY_ID,
-        data: {
-            categoryId,
-            newCategoryData,
-        }
-    }
-}
+export const updateCategory = category => async dispatch => new Promise(((resolve, reject) => {
+    api.patch(`/categories/${category.id}`, category)
+        .then(() => {
+            dispatch({
+                type: actionsTypes.category.UPDATE_CATEGORY_BY_ID,
+                data: category
+            });
+            resolve()
+        })
+        .catch(err => {
+            console.error(err);
+            reject()
+        })
+}));
+
+export const addCategory = category => async dispatch => new Promise(((resolve, reject) => {
+    api.post(`/categories`, category)
+        .then(() => {
+            dispatch({
+                type: actionsTypes.category.ADD_NEW_CATEGORY,
+                data: category
+            });
+            resolve()
+        })
+        .catch(err => {
+            console.error(err);
+            reject()
+        })
+}));

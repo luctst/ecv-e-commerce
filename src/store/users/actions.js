@@ -6,3 +6,10 @@ export function populateUser(data) {
         data,
     }
 }
+
+export const logUser = data => dispatch => {
+    dispatch({
+        type: actionsTypes.users.POPULATE_USER,
+        data
+    })
+};

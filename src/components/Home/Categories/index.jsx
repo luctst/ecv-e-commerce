@@ -1,9 +1,10 @@
-import { connect } from 'react-redux';
-
 import './style.scss';
+import { useSelector } from 'react-redux';
+import { getCategories } from "../../../store/category/selectors";
 import LinkButton from "../../LinkButton";
 
-function SmallArticle({ categories }) {
+function SmallArticle() {
+    const categories = useSelector(getCategories);
     return (
         <section className="home-categories">
             <h2>Toutes nos catégories</h2>
@@ -18,10 +19,4 @@ function SmallArticle({ categories }) {
     );
 }
 
-function mapStateToProps (state) {
-    return {
-        categories: state.category
-    }
-}
-
-export default connect(mapStateToProps)(SmallArticle);
+export default SmallArticle;

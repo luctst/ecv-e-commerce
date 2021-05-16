@@ -1,20 +1,21 @@
 import CategoryForm from "../components/CategoryForm";
-
-const category = {
-    name: 'Jupes',
-    image: "https://medias-cache.citadium.com/image/60/9/3064609.jpg"
-};
+import { useSelector } from "react-redux";
+import { getUserCategory } from "../store/category/selectors";
 
 function CategoryEdit(props) {
-    return (
-        <CategoryForm
-            { ...props }
-            title="Modifier la catégorie"
-            name={category.name}
-            image={category.image}
-            button="Modifier"
-        />
-    )
+    const category = useSelector(state => getUserCategory(state, props.match.params.id));
+    if(category) {
+        return (
+            <CategoryForm
+                { ...props }
+                title="Modifier la catégorie"
+                data={category}
+                button="Modifier"
+            />
+        )
+    } else {
+        return <p>Vous n'avez pas le droit de modifier cette catégorie</p>
+    }
 }
 
 export default CategoryEdit;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { Link, Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -8,11 +8,13 @@ import logo from '../../assets/images/logo.svg';
 import search from '../../assets/images/icons/search.svg';
 import Input from "../Input";
 import Button from "../Button";
+import { getCurrentUser } from "../../store/users/selectors";
 
 function Header({ userConnected }) {
     const [redirect, setRedirect] = useState(false);
     let history = useHistory();
     const [open, setOpen] = useState(false);
+    const user = useSelector(getCurrentUser);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -43,25 +45,21 @@ function Header({ userConnected }) {
                     <li>
                         <Link to="/articles">Tous nos articles</Link>
                     </li>
-                    {
-                        userConnected 
-                            ? (
-                                <>
-                                    <li> <Link to="/mon-compte">Mon compte</Link> </li>
-                                    <li onClick={disconnect}>Logout</li>
-                                </>
-                            )
-                            : (
-                                <>
-                                    <li>
-                                        <Link to="/connexion">Connexion</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/inscription">Inscription</Link>
-                                    </li>
-                                </>
-                            )
-                    }
+                    {user ? (
+                        <>
+                            <li> <Link to="/mon-compte">Mon compte</Link> </li>
+                            <li onClick={disconnect}>Logout</li>
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <Link to="/connexion">Connexion</Link>
+                            </li>
+                            <li>
+                                <Link to="/inscription">Inscription</Link>
+                            </li>
+                        </>
+                    )}
                     <li>
                         <button onClick={() => setOpen(!open)}>
                             <img src={search} alt="Faire une recherche"/>

@@ -96,14 +96,14 @@
     {
       "name": "Tous",
       "id": 0,
-      "handle": "all",
+      "handle": "tous",
       "image": "https://medias-cache.printemps.com/image/10/6/3061106.jpg"
     },
     {
       "name": "Jupes",
       "id": 1,
       "handle": "jupe",
-      "userID": 1,
+      "userId": 1,
       "image": "https://cms.lookiero.com/uploads/comment-porter-jupe-midi-printemps.jpg"
     },
     {
@@ -161,6 +161,13 @@
       "handle": "tee-shirt",
       "userId": 3,
       "image": "https://medias-cache.citadium.com/image/31/0/3031310.jpg"
+    },
+    {
+      "userId": 2,
+      "image": "https://cdn.futura-sciences.com/buildsv6/images/mediumoriginal/8/3/8/8388d602c6_50152199_verres-teintes-dzina-fotolia.jpg",
+      "name": "Lunettes de soleil",
+      "handle": "lunettes-de-soleil",
+      "id": 10
     }
   ],
   "users": [
@@ -227,6 +234,22 @@
       "firstname": "tdj",
       "lastname": "yu",
       "id": 8
+    },
+    {
+      "email": "yfkuykuk@gmail.com",
+      "password": "$2a$10$.gQQ1.ASSXY.dp93D7grZOdViO4szmmOyc9OtVt8Dt8SIq0.566mu",
+      "avatar": "rqstg",
+      "firstname": "dthj",
+      "lastname": "yfjk",
+      "id": 9
+    },
+    {
+      "email": "guigulgiu@gmail.com",
+      "password": "$2a$10$umt6.9Eemyi4VFyNgn8MKu90lPNNOno9rYm9MH2eojeG2uI.hQj/e",
+      "avatar": "zrtgh",
+      "firstname": "dty",
+      "lastname": "jyfyfjkfuyk",
+      "id": 10
     }
   ]
 }

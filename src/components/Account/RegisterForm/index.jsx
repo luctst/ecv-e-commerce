@@ -46,7 +46,6 @@ function RegisterForm({ populateUser }) {
                 cpNewUser.password = undefined;
 
                 populateUser(cpNewUser);
-                console.log(cpNewUser);
                 history.push('/mon-compte')
             }
         } catch (error) {

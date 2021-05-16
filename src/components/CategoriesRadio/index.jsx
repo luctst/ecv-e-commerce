@@ -1,8 +1,10 @@
-import { connect } from 'react-redux';
-
 import './style.scss';
+import { useSelector } from 'react-redux';
+import { getCategories } from "../../store/category/selectors";
 
-function CategoriesRadio({ children, categories, onChange, selected = 0 }) {
+function CategoriesRadio({ children, onChange, selected = 0 }) {
+
+    const categories = useSelector(getCategories);
 
     function categoryChange(id) {
         if(onChange) {
@@ -23,10 +25,4 @@ function CategoriesRadio({ children, categories, onChange, selected = 0 }) {
     )
 }
 
-function mapStateToProps (state) {
-    return {
-        categories: state.category
-    }
-}
-
-export default connect(mapStateToProps)(CategoriesRadio);
+export default CategoriesRadio;

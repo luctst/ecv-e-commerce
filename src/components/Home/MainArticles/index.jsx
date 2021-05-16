@@ -1,8 +1,10 @@
-import { connect } from 'react-redux';
 import './style.scss';
+import { useSelector } from 'react-redux';
+import { getArticles } from "../../../store/articles/selectors";
 import List from "../../List";
 
-function Categories({ articles }) {
+function Categories() {
+    const articles = useSelector(getArticles);
     return (
         <section className="main-articles">
             {articles && articles.length &&
@@ -12,10 +14,4 @@ function Categories({ articles }) {
     );
 }
 
-function mapStateToProps (state) {
-    return {
-        articles: state.articles
-    }
-} 
-
-export default connect(mapStateToProps)(Categories);
+export default Categories;
