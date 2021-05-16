@@ -38,7 +38,7 @@ function AccountDetails({ articles, categories, deleteCategory }) {
                                     </td>
                                     <td>
                                         <div>
-                                            <Link to={`/categorie/modifier/${category.handle}`} className="modify">Modifier</Link>
+                                            <Link to={`/categorie/modifier/${category.id}`} className="modify">Modifier</Link>
                                             <button className="delete" onClick={() => deleteCategory(category.id)}>Supprimer</button>
                                         </div>
                                     </td>

@@ -185,6 +185,12 @@
       "id": 9,
       "handle": "tee-shirt",
       "userId": 3
+    },
+    {
+      "userId": 3,
+      "name": "jogging",
+      "handle": "jogging",
+      "id": 10
     }
   ],
   "users": [

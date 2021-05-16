@@ -21,6 +21,16 @@ export function addNewCategory (newCategory) {
 export function deleteCategory (categoryId) {
     return {
         type: actionsTypes.category.DELETE_CATEGORY,
-        date: categoryId
+        data: categoryId
+    }
+}
+
+export function updateCategory (categoryId, newCategoryData) {
+    return {
+        type: actionsTypes.category.UPDATE_CATEGORY_BY_ID,
+        data: {
+            categoryId,
+            newCategoryData,
+        }
     }
 }

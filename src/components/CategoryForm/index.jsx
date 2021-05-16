@@ -6,9 +6,9 @@ import './style.scss';
 import Button from '../Button';
 import Upload from "../Upload";
 import api from '../../api/index';
-import { addNewCategory } from '../../store/category/actions';
+import { addNewCategory, updateCategory } from '../../store/category/actions';
 
-function CategoryForm({ userData, title, image, button, addNewCategory }) {
+function CategoryForm({ userData, title, image, button, addNewCategory, updateCategory, match }) {
     const [newCategory, setNewCategory] = useState({
         userId: userData.userId
     });
@@ -35,9 +35,15 @@ function CategoryForm({ userData, title, image, button, addNewCategory }) {
         try {
             e.preventDefault();
 
-            await api.post('/categories', newCategory);
+            if (match) {
+                const { data } = await api.patch(`/600/categories/${match.params.id}`, newCategory);
+                updateCategory(match.params.id, data);
+                return setRedirect(true);
+            }
 
-            addNewCategory(newCategory);
+
+            const { data } = await api.post('/categories', newCategory);
+            addNewCategory(data);
             setRedirect(true);
         } catch (error) {
             throw error;
@@ -71,5 +77,5 @@ function mapStateToProps (state) {
 
 export default connect(
     mapStateToProps,
-    { addNewCategory }
+    { addNewCategory, updateCategory}
 )(CategoryForm);
