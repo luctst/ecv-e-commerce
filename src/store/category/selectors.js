@@ -9,5 +9,5 @@ export const getUserCategories = state => {
 
 export const getUserCategory = (state, id) => {
     if(!state.users || !state.users.connected || !state.category || !state.category.length) return [];
-    return state.category && state.category.length ? state.category.find(e => e.id == id && e.userId == state.users.connected.id) : null
+    return state.category && state.category.length ? state.category.find(e => e.id === id && e.userId === state.users.connected.id) : null
 };
