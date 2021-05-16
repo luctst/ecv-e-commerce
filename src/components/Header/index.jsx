@@ -48,7 +48,7 @@ function Header({ userConnected }) {
                     {user ? (
                         <>
                             <li> <Link to="/mon-compte">Mon compte</Link> </li>
-                            <li onClick={disconnect}>Logout</li>
+                            <li onClick={disconnect}>Déconnexion</li>
                         </>
                     ) : (
                         <>
