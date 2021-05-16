@@ -96,61 +96,71 @@
     {
       "name": "Tous",
       "id": 0,
-      "handle": "all"
+      "handle": "all",
+      "image": "https://medias-cache.printemps.com/image/10/6/3061106.jpg"
     },
     {
       "name": "Jupes",
       "id": 1,
       "handle": "jupe",
-      "userID": 1
+      "userID": 1,
+      "image": "https://cms.lookiero.com/uploads/comment-porter-jupe-midi-printemps.jpg"
     },
     {
       "name": "Vestes",
       "id": 2,
       "handle": "vestes",
-      "userId": 2
+      "userId": 2,
+      "image": "https://medias-cache.citadium.com/image/31/9/3031319.jpg"
     },
     {
       "name": "Chemises",
       "id": 3,
       "handle": "chemises",
-      "userId": 3
+      "userId": 3,
+      "image": "https://www.jules.com/on/demandware.static/-/Sites-Jules-SFRA-Library/default/dw7dd26676/guides/chemise/guide_tetiere_CHEMISE.jpg"
     },
     {
       "name": "Robes",
       "id": 4,
       "handle": "robes",
-      "userId": 1
+      "userId": 1,
+      "image": "https://cache.cosmopolitan.fr/data/photo/w1000_ci/5n/robes-printemps-zara.jpg"
     },
     {
       "name": "Sacs",
       "id": 5,
       "handle": "sacs",
-      "userId": 2
+      "userId": 2,
+      "image": "https://i.f1g.fr/media/madame/1900x1900/sites/default/files/img/2017/08/50-sacs-a-main-noirs-et-colores-pour-la-rentree.jpg"
     },
     {
       "name": "Chaussures",
       "id": 6,
       "handle": "chaussures",
-      "userId": 3
+      "userId": 3,
+      "image": "https://medias-cache.citadium.com/image/60/9/3064609.jpg"
     },
     {
       "name": "Pantalons",
       "id": 7,
       "handle": "pantalons",
-      "userId": 1
+      "userId": 1,
+      "image": "https://medias-cache.citadium.com/image/92/5/3037925.jpg"
     },
     {
       "name": "Pulls",
       "id": 8,
       "handle": "pulls",
-      "userId": 2
+      "userId": 2,
+      "image": "https://medias-cache.citadium.com/image/32/0/3031320.jpg"
     },
     {
       "name": "Tee-shirt",
       "id": 9,
       "handle": "tee-shirt",
-      "userId": 3
+      "userId": 3,
+      "image": "https://medias-cache.citadium.com/image/31/0/3031310.jpg"
     }
   ],
   "users": [
@@ -174,6 +184,13 @@
       "surName": "Tostee",
       "name": "Lucas",
       "id": 3
+    },
+    {
+      "email": "julie@gmail.com",
+      "password": "$2a$10$UpblH.UgFGMOhPRx8N5wTeU2j8cDKEBj38BhYrYtI0W.LMk5fkW8i",
+      "surName": "Lola",
+      "name": "Julie",
+      "id": 4
     }
   ]
 }
